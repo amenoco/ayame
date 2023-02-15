@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+  root to: 'homes#top'
+  
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
