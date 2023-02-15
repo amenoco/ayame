@@ -1,0 +1,2 @@
+module Public::DetailsHelper
+end
