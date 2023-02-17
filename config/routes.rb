@@ -20,8 +20,7 @@ root to: 'public/homes#top'
 scope module: :public do
     get '/about' => 'homes#about'
 
-    get '/guest_login' =>  'guest_sessions#create#new', as: 'guest'
-    post '/guest_login' =>  'guest_sessions#create', as: 'guest_login'
+    post '/guest', to: 'guest_sessions#create'
     get '/users/my_page' => 'users#show', as: 'my_page'
     get '/users/infomation/edit' => 'users#edit', as: 'users_edit'
     patch '/users/infomation' => 'users#update', as: 'infomation'
