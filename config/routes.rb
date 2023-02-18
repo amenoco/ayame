@@ -23,10 +23,17 @@ scope module: :public do
     post '/guest', to: 'guest_sessions#create'
     get '/users/my_page' => 'users#show', as: 'my_page'
     get '/users/infomation/edit' => 'users#edit', as: 'users_edit'
-    patch '/users/infomation' => 'users#update', as: 'infomation'
+    patch '/users/infomation' => 'users#update', as: 'uinfomation'
     get '/users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     patch '/users/withdraw' => 'users#withdraw', as: 'withdraw'
 
+#category
+    get 'posts/all' => 'posts#all', as: 'all'
+    get 'posts/age' => 'posts#age', as: 'age'
+    get 'posts/region' => 'posts#region', as: 'region'
+    get 'posts/infomation' => 'posts#infomation', as: 'infomation'
+    get 'posts/question' => 'posts#question', as: 'question'
+   
     resources :users, :posts, :details
     
   end
@@ -40,5 +47,7 @@ root to: '/admin/homes#top'
     resources :users, :categories, :posts, :details
   end
   
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
 end

@@ -26,10 +26,10 @@
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to '投稿フォーム', new_post_image_path, class: 'nav-link text-dark' %>
+              <%#= link_to '投稿フォーム', new_post_image_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %>
+              <%#= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %>
             </li>
             <% else %>
             <li class="nav-item">
@@ -37,6 +37,9 @@
             </li>
             <li class="nav-item">
               <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'ゲストユーザー', guest_path, method: :post, class: 'nav-link text-dark' %>
             </li>
             <% end %>
             </ul>

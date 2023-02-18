@@ -11,7 +11,4 @@ class ApplicationController < ActionController::Base
       session[:user_id] = user.id
     end
     
-    # def guest_user
-    #   current_user == User.find_by(email: 'test@example.com')
-    # end
 end
