@@ -34,7 +34,7 @@ scope module: :public do
     get 'posts/infomation' => 'posts#infomation', as: 'infomation'
     get 'posts/question' => 'posts#question', as: 'question'
    
-    resources :users, :posts, :details
+    resources :users, :posts, :details, :address
     
   end
 
