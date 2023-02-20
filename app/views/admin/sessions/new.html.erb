@@ -3,7 +3,7 @@
     <div class="col-md-9">
       <h2>管理者ログイン</h2>
       
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= form_with model: @admin, url: admin_session_path do |f| %>
         <div class="field">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -13,14 +13,11 @@
           <%= f.label :password %><br />
           <%= f.password_field :password, autocomplete: "current-password" %>
         </div>
-      
-        <div class="actions">
-          <%= f.submit "ログイン" %>
-        </div>
         
-      <% end %>
-      
-      <%= render "admin/shared/links" %>
+    
+    <%= f.submit "ログイン", class: "btn btn-primary btn-sm" %>
+<% end %>
+ 
 
     </div>
   </div>

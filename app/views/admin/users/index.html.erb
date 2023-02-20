@@ -19,7 +19,7 @@
 
         <% @users.each do |user| %>
           <tr>
-            <td><% user.id %></td>
+            <td><% user(user.id) %></td>
             <td><%=link_to user.name, admin_user_path(user.id) %></td>
             <td><%= user.email %></td>
             <td><%= user.address %></td>

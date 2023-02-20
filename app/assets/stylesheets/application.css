@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ *{
+ font-family: 'Zen Maru Gothic', sans-serif;
+ }
+ 
+ .jumbotron { background:url(top.jpg) center no-repeat; background-size: cover;}
+ 
+ footer {
+  margin-top: auto;
+}
