@@ -20,16 +20,14 @@ class Public::PostsController < ApplicationController
     @questions = Post.where(category:"question")
   end
   
-  private
-  
-  def post_params
-    params.require(:post).permit(:cotent,:category) #categoryを追加
-  end
   
   def new
+    @post = Post.new
   end
 
   def index
+    @posts = Post.all
+    @post = Post.new
   end
 
   def show
@@ -45,5 +43,11 @@ class Public::PostsController < ApplicationController
   end
 
   def destroy
+  end
+  
+  private
+  
+  def post_params
+    params.require(:post).permit(:cotent,:category) #categoryを追加
   end
 end
