@@ -17,7 +17,9 @@
           
           <div class="field">
             <%= f.label :お住いの都道府県 %><br>
-            <%= f.text_field :address, autocomplete: "address" %>
+            <%= form_with @user, method: :post do |f| %>
+            <%= f.select :address, User.addresses.keys, {} %>
+            <% end %>
           </div>
         
           <div class="field">

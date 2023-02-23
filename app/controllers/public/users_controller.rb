@@ -20,7 +20,7 @@ class Public::UsersController < ApplicationController
     # インスタンスの保存に成功した場合の処理
     if @user.save
       flash[:success] = "ユーザを登録しました"
-      redirect_to @user
+      redirect_to root
 
     # インスタンスの保存に失敗した場合の処理
     else

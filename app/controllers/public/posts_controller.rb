@@ -1,33 +1,18 @@
 class Public::PostsController < ApplicationController
   
-  def all
-    @alls = Post.where(category:"all")
-  end
-
-  def age
-    @ages = Post.where(category:"age")
-  end
-
-  def region
-    @regions = Post.where(category:"region")
-  end
-  
-  def infomation
-    @infomations = Post.where(category:"infomation")
-  end
-
-  def question
-    @questions = Post.where(category:"question")
-  end
-  
-  
   def new
     @post = Post.new
   end
 
   def index
-    @posts = Post.all
-    @post = Post.new
+    #byebug
+    if params[:category].nil?
+      @posts = Post.all
+      @category_name = '全体'
+    elsif params[:category]
+      @category_name = params[:category]
+      @posts = Category.find_by(name: @category_name).posts
+    end
   end
 
   def show
@@ -37,6 +22,14 @@ class Public::PostsController < ApplicationController
   end
 
   def create
+    @post = Post.new(post_params)
+    @post.user = current_user
+    #byebug
+    if @post.save
+      redirect_to posts_path
+    else
+      render :new
+    end
   end
 
   def update
@@ -48,6 +41,6 @@ class Public::PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:cotent,:category) #categoryを追加
+    params.require(:post).permit(:title, :text ,:category_id) #categoryを追加
   end
 end

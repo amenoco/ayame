@@ -28,11 +28,11 @@ scope module: :public do
     patch '/users/withdraw' => 'users#withdraw', as: 'withdraw'
 
 #category
-    get 'posts/all' => 'posts#all', as: 'all'
-    get 'posts/age' => 'posts#age', as: 'age'
-    get 'posts/region' => 'posts#region', as: 'region'
-    get 'posts/infomation' => 'posts#infomation', as: 'infomation'
-    get 'posts/question' => 'posts#question', as: 'question'
+    #get 'category/all' => 'categories#all', as: 'all'
+    #get 'categories/age' => 'categories#age', as: 'age'
+    #get 'categories/region' => 'categories#region', as: 'region'
+    #get 'categories/infomation' => 'categories#infomation', as: 'infomation'
+    #get 'categories/question' => 'categories#question', as: 'question'
    
     resources :users, :posts, :details, :address
     

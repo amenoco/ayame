@@ -1,4 +1,5 @@
 class Category::CategoriesController < ApplicationController
+  
   def new
   end
 
@@ -18,5 +19,9 @@ class Category::CategoriesController < ApplicationController
   end
 
   def destroy
+  end
+  
+  def category_params
+    params.require(:category).permit(:cotent,:category) #categoryを追加
   end
 end

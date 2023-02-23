@@ -10,3 +10,23 @@ Admin.create!(
   email: "ay@me",
   password: "ohanaa"
 )
+
+Category.create!(
+  name: "ALL"
+)
+
+Category.create!(
+  name: "月齢"
+)
+
+Category.create!(
+  name: "地域"
+)
+
+Category.create!(
+  name: "情報"
+)
+
+Category.create!(
+  name: "質問"
+)

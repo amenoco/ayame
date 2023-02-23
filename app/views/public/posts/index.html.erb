@@ -1,2 +1,8 @@
-<h1>Public::Posts#index</h1>
-<p>Find me in app/views/public/posts/index.html.erb</p>
+<h1><%= @category_name %></h1>
+
+<% @posts.each do |post| %>
+  <p><%= post.title %></p>
+  <p><%= post.text %></p>
+    <p><%= @user.name %></p>
+  <!--<p>カテゴリー:<%#= post.category.name %></p>-->
+<% end %>

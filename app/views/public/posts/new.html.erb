@@ -1,19 +1,22 @@
-<h1>Public::Posts#new</h1>
-<p>Find me in app/views/public/posts/new.html.erb</p>
-<h1>新規投稿</h1>
-<!-- form_with部分 -->
-<%= form_with model: Post.new do |f| %>
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
-	
-  <h4>本文</h4>
-  <%= f.text_area :body %>
-	
-  <%= f.submit '投稿' %>
-<% end %>
-<%#= form_for @post do |f| %>
-   <%#= f.label :content,"内容" %>
-   <%#= f.text_field :content %>
-   <%#= f.select :category, [["ALL", "all"], ["月齢", "age"], ["地域", "region"]], ["情報", "infomation"], ["質問", "question"], include_blank: "どの投稿？" %>
-   <%#= f.submit "投稿する" %>
-  <%# end %>
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-9">
+      <h2>新規投稿</h2>
+      <!-- form_with部分 -->
+      <%= form_with model: @post do |f| %>
+        <h6>タイトル</h6>
+        <%= f.text_field :title %>
+      	
+        <h6>本文</h6>
+        <%= f.text_area :text %>
+      	
+      
+        <div class="form_input">
+          <%= f.label :カテゴリー %><br>
+          <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: 'どの投稿をしますか？' } %>
+        </div>
+        <%= f.submit '投稿する' %>
+      <% end %>
+    </div>
+  </div>
+</div>
