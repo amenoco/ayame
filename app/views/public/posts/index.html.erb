@@ -3,6 +3,9 @@
 <% @posts.each do |post| %>
   <p><%= post.title %></p>
   <p><%= post.text %></p>
-    <p><%= @user.name %></p>
+  <% if post.images.attached? %>
+    <%= image_tag post.image %>
+  <% end %>
+    <p><%= post.user.name %></p>
   <!--<p>カテゴリー:<%#= post.category.name %></p>-->
 <% end %>

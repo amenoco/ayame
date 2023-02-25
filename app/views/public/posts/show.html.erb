@@ -1,2 +1,7 @@
 <h1>show</h1>
 <p>Find me in app/views/public/posts/show.html.erb</p>
+<% if @post.images.attached? %>
+          <% @post.images.each do |image| %>
+            <%= image_tag image %> <br>
+          <% end %>
+        <% end %>

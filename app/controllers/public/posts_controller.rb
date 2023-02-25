@@ -41,6 +41,6 @@ class Public::PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:title, :text ,:category_id) #categoryを追加
+    params.require(:post).permit(:title, :text, :category_id, :images) #categoryを追加
   end
 end

@@ -17,7 +17,7 @@
  font-family: 'Zen Maru Gothic', sans-serif;
  }
  
- .jumbotron { background:url(top.jpg) center no-repeat; background-size: cover;}
+ .jumbotron { background:url(ayame.jpg) center no-repeat; background-size: auto;}
  
  footer {
   margin-top: auto;
