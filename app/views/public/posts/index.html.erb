@@ -1,10 +1,12 @@
 <h1><%= @category_name %></h1>
-
+<%= link_to '新規投稿', new_post_path, class: 'text-dark' %>
 <% @posts.each do |post| %>
   <p><%= post.title %></p>
   <p><%= post.text %></p>
   <% if post.images.attached? %>
-    <%= image_tag post.image %>
+  <% post.images.each do |image| %>
+    <%= image_tag image %>
+    <% end %>
   <% end %>
     <p><%= post.user.name %></p>
   <!--<p>カテゴリー:<%#= post.category.name %></p>-->

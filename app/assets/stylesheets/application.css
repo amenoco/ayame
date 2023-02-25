@@ -17,8 +17,17 @@
  font-family: 'Zen Maru Gothic', sans-serif;
  }
  
- .jumbotron { background:url(ayame.jpg) center no-repeat; background-size: auto;}
+ #header {
+  background-color : transparent; /* ヘッダの背景色 */
+ }
+ 
+ .jumbotron {
+  background:url(ayame.jpg) center no-repeat; 
+  background-size: auto; 
+  height: 400px;
+}
  
  footer {
   margin-top: auto;
+  background-color : indigo-200;
 }

@@ -24,12 +24,14 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
+    # binding.irb
     #byebug
-    if @post.save
-      redirect_to posts_path
-    else
-      render :new
-    end
+    @post.save!
+    # if @post.save
+    #   redirect_to posts_path
+    # else
+    #   render :new
+    # end
   end
 
   def update
@@ -41,6 +43,6 @@ class Public::PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:title, :text, :category_id, :images) #categoryを追加
+    params.require(:post).permit(:title, :text, :category_id, images: []) #categoryを追加
   end
 end
