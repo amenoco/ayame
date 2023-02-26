@@ -1,7 +1,22 @@
-<h1>show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
-<% if @post.images.attached? %>
-          <% @post.images.each do |image| %>
-            <%= image_tag image %> <br>
-          <% end %>
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-9">
+      <p><%= link_to @post.user.name, user_path(@post.user) %></p>
+      <p><%= @post.title %></p>
+      <p><%= @post.text %></p>
+      <% if @post.images.attached? %>
+        <% @post.images.each do |image| %>
+          <%= image_tag image %>
         <% end %>
+      <% end %>
+      <% if @post.user == current_user %>
+        <%= link_to edit_post_path(@post.id), class: "btn btn-success btn-sm btn-block mb-3 edit_user" do %>
+          Edit
+        <% end %>
+        <%= link_to post_path(@post.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" do %>
+          Destroy
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

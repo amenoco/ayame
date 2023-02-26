@@ -40,7 +40,7 @@
               <%= link_to '投稿フォーム', new_post_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %>
+              <%= link_to 'マイページ',  my_page_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
@@ -73,7 +73,6 @@
       <div class="container">
         <div class="row no-gutters">
           <div class="col-md-9">
-            <p>ひとり親の方が笑顔になるコミュニティサイト</p>
             <%#= image_tag('logo-white.png') %>
           </div>
           <div class="col-md-3">

@@ -1,2 +1,16 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-9">
+      <h4><%= @user.name %>さんの投稿</h4>
+        <% @posts.each do |post| %>
+          <p><%= post.title %></p>
+          <p><%= post.text %></p>
+          <% if post.images.attached? %>
+          <% post.images.each do |image| %>
+            <%= image_tag image %>
+            <% end %>
+        <% end %>
+        <% end %>
+   </div>
+  </div>
+</div>
