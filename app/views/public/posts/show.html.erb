@@ -9,6 +9,19 @@
           <%= image_tag image %>
         <% end %>
       <% end %>
+      <p>コメント件数：<%= @post.post_comments.count %></p>
+  <% @post.post_comments.each do |post_comment| %>
+    <p><%#= image_tag post_comment.user.get_profile_image(100,100) %></p>
+    <%= post_comment.user.name %>
+    <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+  <% end %>
+</div>
+<div>
+  <%= form_with model: @post_comment do |f| %>
+    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+    <%= f.submit "送信する" %>
+  <% end %>
+</div>
       <% if @post.user == current_user %>
         <%= link_to edit_post_path(@post.id), class: "btn btn-success btn-sm btn-block mb-3 edit_user" do %>
           Edit

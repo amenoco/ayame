@@ -1,6 +1,13 @@
 <div class="container">
   <div class="row no-gutters">
     <div class="col-md-9">
+      <%= form_tag(posts_path, :method => "get") do %>
+       <%= text_field_tag :search %> 
+      <%= submit_tag "Search" ,:text => nil ,class: "button is-info"%> 
+      <% end %> 
+      <% @post.each do |post| %>
+      <% end %>
+      
       <h1><%= @category_name %></h1>
       <%= link_to '新規投稿', new_post_path, class: 'text-dark' %>
       <% @posts.each do |post| %>
@@ -12,7 +19,9 @@
           <% end %>
         <% end %>
           <p><%= post.user.name %></p>
+      <p><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p>
       <% end %>
+      
    </div>
   </div>
 </div>

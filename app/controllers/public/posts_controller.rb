@@ -5,6 +5,8 @@ class Public::PostsController < ApplicationController
   end
 
   def index
+    @post = Post.search(params[:search])
+  
     #byebug
     if params[:category].nil?
       @posts = Post.all

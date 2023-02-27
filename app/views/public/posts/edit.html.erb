@@ -1,17 +1,13 @@
-<%= form_with model: @post do |f| %>
-
 <div class="container">
-
-        <%= form_with model: @post, url: post_path(@post.id), method: :patch do |f| %>
-        <% if @post.errors.any? %>
-          <h3><%= @post.errors.count %> error prohibited this obj from being saved:</h3>
-            
-          <ul>
-            <% @post.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-          <% end %>
+  <%= form_with model: @post, url: post_path(@post.id), method: :patch do |f| %>
+    <% if @post.errors.any? %>
+      <h3><%= @post.errors.count %> error prohibited this obj from being saved:</h3>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h1>Editing Book</h1>

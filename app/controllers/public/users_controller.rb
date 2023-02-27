@@ -12,8 +12,13 @@ class Public::UsersController < ApplicationController
     @posts = @user.posts
   end
 
+  def my
+    @user = current_user
+    @posts = @user.posts
+  end
+
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def create
