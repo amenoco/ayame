@@ -5,16 +5,26 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @post = Post.search(params[:search])
+    @posts = Post.left_joins(:category).all
+    @category_name = '全体'
+
+    if params[:category] != nil
+      @posts = @posts.where(category: {name: params[:category]})
+      @category_name = params[:category]
+    end
+    if params[:search] != nil
+      @posts = @posts.where(['text LIKE ?', "%#{params[:search]}%"])
+    end
+
+#    @post = Post.search(params[:search])
   
     #byebug
-    if params[:category].nil?
-      @posts = Post.all
-      @category_name = '全体'
-    elsif params[:category]
-      @category_name = params[:category]
-      @posts = Category.find_by(name: @category_name).posts
-    end
+#    if params[:category].nil?
+#      @posts = Post.all
+#    elsif params[:category]
+#      @category_name = params[:category]
+#      @posts = Category.find_by(name: @category_name).posts
+#    end
   end
 
   def show

@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row no-gutters">
     <div class="col-md-9">
-      <%= form_tag(posts_path, :method => "get") do %>
+      <%= form_tag(posts_path(), :method => "get") do %>
        <%= text_field_tag :search %> 
-      <%= submit_tag "Search" ,:text => nil ,class: "button is-info"%> 
+       <%= hidden_field_tag :category, @category_name %>
+      <%= submit_tag "検索" ,:text => nil ,class: "button is-info"%> 
       <% end %> 
-      <% @post.each do |post| %>
-      <% end %>
+      
       
       <h1><%= @category_name %></h1>
       <%= link_to '新規投稿', new_post_path, class: 'text-dark' %>
