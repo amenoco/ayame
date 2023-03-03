@@ -18,16 +18,28 @@
  }
  
  #header {
-  background-color : transparent; /* ヘッダの背景色 */
+  background-color : #D9E5FF; /* ヘッダの背景色 */
  }
+ 
  
  .jumbotron {
   background:url(ayame.jpg) center no-repeat; 
   background-size: auto; 
   height: 400px;
 }
+
+.headwrap{
+	background:url(f.jpg) no-repeat center top;
+	background-size: auto; 
+ height: 200px;
+} 
+
  
  footer {
+  color: #2E8B57;
   margin-top: auto;
-  background-color : indigo-200;
+  background: #D9E5FF;
+}
+footer a{
+ text-decoration: none;
 }

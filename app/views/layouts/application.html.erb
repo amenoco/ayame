@@ -40,7 +40,7 @@
               <%= link_to '投稿フォーム', new_post_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'マイページ',  my_page_path, class: 'nav-link text-dark' %>
+              <%= link_to 'マイページ',  my_page_path, class: 'nav-lin k text-dark' %>
             </li>
             <li class="nav-item">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
@@ -69,24 +69,27 @@
     <main class="m-5">
     <%= yield %>
     </main>
-    <footer class="bg-info text-white pt-5 pb-4">
-      <div class="container">
+    <footer>
+      <div class="headwrap">
+      <div class="container text- pt-5 pb-4">
         <div class="row no-gutters">
           <div class="col-md-9">
             <%#= image_tag('logo-white.png') %>
+      
           </div>
           <div class="col-md-3">
             <ul class="p-0 list-unstyled">
               <li>
-                <a href="" title="License informations" class="text-white-50">プライバシーポリシー</a>
+                <a href="" title="License informations" class: 'nav-link text-dark'>プライバシーポリシー</a>
               </li>
               <li>
-                <a href="" title="About" class="text-white-50">利用規約</a>
+                <a href="" title="About" class: 'nav-link text-dark'>利用規約</a>
               </li>
               <li>
                 <a href="" title="" class="text-white-50">コミュニティガイドライン</a>
               </li>
             </ul>
+          </div>
           </div>
         </div>
       </div>

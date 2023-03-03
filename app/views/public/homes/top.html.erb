@@ -2,13 +2,16 @@
 <div class="container">
   <div class="row no-gutters">
     <div class="col-md-9">
-        
-         
-         <%= link_to 'ALL', posts_path(category: 'ALL'), class: 'text-dark' %>
+      
+         <%= link_to posts_path(category: 'ALL') do %>
+          <%= image_tag ('ALL.jpg'), size: '300x300' %>
+         <% end %>
          <%= link_to '月齢', posts_path(category: '月齢'),class: 'text-dark' %>
          <%= link_to '地域', posts_path(category: '地域'),class: 'text-dark' %>
          <%= link_to '情報', posts_path(category: '情報'), class: 'text-dark' %>
          <%= link_to '質問', posts_path(category: '質問'), class: 'text-dark' %>
+        
+         </div>
     </div>
   </div>
 </div>

@@ -10,7 +10,7 @@
     <% end %>
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h1>登録内容の編集</h1>
+      <h1>登録内容の変更</h1>
 
       <div class="form-group">
         <label>お名前</label>
@@ -23,8 +23,13 @@
       </div>
 
       <div class="form-group">
-        <label>お住いの都道府県</label>
+        <label>お住いの都道府県</label><br>
           <%= f.select :address, User.addresses.keys, {} %> 
+      </div>
+      
+      <div class="form-group">
+        <label>パスワード</label>
+          <%= f.password_field :encrypted_password, class:"form-control" %>
       </div>
 
       <div class="form-group">
