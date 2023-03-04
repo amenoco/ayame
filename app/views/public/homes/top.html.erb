@@ -15,35 +15,55 @@
   <input id="質問" type="radio" name="tab_switch">
   <label class="tab_label" for="質問">質問</label>
   
+      
   <div class="tab_content" id="all_content">
     <div class="tab_content_description">
-      <p class="c-txtsp"><%= link_to 'ALL', posts_path(category: 'ALL'), class: 'text-dark' %></p>
+      <h5 class="c-txtsp">
+        <%= link_to 'ALL', posts_path(category: 'ALL'), class: 'nav-link text-info' %>  
+        カテゴリーなしの投稿用
+      </h5>
     </div>
   </div>
+  
+  
   <div class="tab_content" id="月齢_content">
     <div class="tab_content_description">
-      <p class="c-txtsp"><%= link_to '月齢', posts_path(category: '月齢'), class: 'text-dark' %></p>
+      <p class="c-txtsp">
+        <%= link_to '月齢', posts_path(category: '月齢'), class: 'nav-link text-dark' %>
+        お子さんの月齢ごとの悩みや成長の投稿用
+      </p>
     </div>
   </div>
+  
   <div class="tab_content" id="地域_content">
     <div class="tab_content_description">
-      <p class="c-txtsp"><%= link_to '地域', posts_path(category: '地域'), class: 'text-dark' %></p>
+      <p class="c-txtsp">
+        <%= link_to '地域', posts_path(category: '地域'), class: 'nav-link text-dark' %>
+        都道府県ごとの投稿用<br>
+        同じ都道府県の仲間づくりなど
+      </p>
     </div>
   </div>
-</div>
-   <div class="tab_content" id="情報_content">
+  
+  <div class="tab_content" id="情報_content">
     <div class="tab_content_description">
-      <p class="c-txtsp"><%= link_to '情報', posts_path(category: '情報'), class: 'text-dark' %></p>
-    </div>
-  </div>
-</div>
-<div class="tab_content" id="質問_content">
-    <div class="tab_content_description">
-      <p class="c-txtsp"><%= link_to '質問', posts_path(category: '質問'), class: 'text-dark' %></p>
-    </div>
-  </div>
-</div>
+      <p class="c-txtsp">
+        <%= link_to '情報', posts_path(category: '情報'), class: 'nav-link text-dark' %>
+        お役立ち情報の投稿用
         
+      </p>
+    </div>
+  </div>
+  
+  <div class="tab_content" id="質問_content">
+    <div class="tab_content_description">
+      <p class="c-txtsp">
+        <%= link_to '質問', posts_path(category: '質問'), class: 'nav-link text-dark' %>
+        わからないことをみんなに聞く投稿用<br>
+        不安な事や悩みなどわからないことはみんなで解決しよ！<br>
+      </p>
+    </div>
+  </div>
          </div>
     </div>
   </div>

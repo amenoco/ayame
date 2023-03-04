@@ -2,9 +2,10 @@ Rails.application.routes.draw do
 
 # 顧客用
 # URL /customers/sign_in ...
-devise_for :users,skip: [:passwords], controllers: {
+devise_for :users, controllers: {
   registrations: "public/registrations",
-  sessions: 'public/sessions'
+  sessions: 'public/sessions',
+  passwords: 'public/passwords'
 }
 # 管理者用
 # URL /admin/sign_in ...
@@ -44,6 +45,7 @@ root to: '/admin/homes#top'
     resources :users, :categories, :posts, :details
   end
   
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
