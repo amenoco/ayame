@@ -1,16 +1,15 @@
 class Public::HomesController < ApplicationController
   def top
-     @posts = Post.left_joins(:category).all
-    @category_name = '全体'
-
-    if params[:category] != nil
-      @posts = @posts.where(category: {name: params[:category]})
-      @category_name = params[:category]
-    end
-    if params[:search] != nil
-      @posts = @posts.where(['text LIKE ?', "%#{params[:search]}%"])
-    end
-    
+    @category_posts =  Category.includes(:posts).map{|o| {category: o, posts: o.posts } }
+    @category_id = 0
+    @search = params[:search]
+  end
+  
+  def search
+    @category_posts =  Category.includes(:posts).map{|o| {category: o, posts: (params[:search].present? && (o.id == params[:category_id].to_i || params[:category_id].to_i == 0) ? o.posts.where('text like ?', "%#{params[:search]}%") : o.posts ) } }
+    @category_id = params[:category_id]
+    @search = params[:search]
+    render 'public/homes/search'
   end
 
   def post_params

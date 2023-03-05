@@ -1,0 +1,9 @@
+$('#category_posts_wrapper').html('<%=j render 'public/homes/category_posts', category_posts: @category_posts, category_id: @category_id, search: @search %>')
+$('#category_id').val('<%= @category_id %>')
+if ('<%= @category_id %>' === '0') {
+   $('.category_posts').show()
+} else {
+  $('.category_posts').hide()
+  $('#category_posts_<%= @category_id %>').show()
+}
+

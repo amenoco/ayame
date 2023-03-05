@@ -16,15 +16,6 @@ class Public::PostsController < ApplicationController
       @posts = @posts.where(['text LIKE ?', "%#{params[:search]}%"])
     end
 
-#    @post = Post.search(params[:search])
-  
-    #byebug
-#    if params[:category].nil?
-#      @posts = Post.all
-#    elsif params[:category]
-#      @category_name = params[:category]
-#      @posts = Category.find_by(name: @category_name).posts
-#    end
   end
 
   def show

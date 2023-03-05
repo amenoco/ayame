@@ -19,6 +19,7 @@ root to: 'public/homes#top'
  #publicの設定
 scope module: :public do
     get '/about' => 'homes#about'
+    get 'search' => 'homes#search', as: 'search'
 
     post '/guest', to: 'guest_sessions#create'
     get '/users/my' => 'users#my', as: 'my_page'
