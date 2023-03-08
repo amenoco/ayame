@@ -1,10 +1,12 @@
  <% category_posts.each do |data| %>
   <% category = data[:category] %>
   <% posts = data[:posts] %>
+    <div i d="sec">
   <div id="category_posts_<%= category.id %>" class="category_posts">
     <h1><%= category.name %></h1>
-    
+  <ul>
     <% posts.each do |post| %>
+    <li>
       <p><%= link_to post.title, post_path(post.id) %></p>
       <p><%= post.text %></p>
       <% if post.images.attached? %>
@@ -14,11 +16,14 @@
       <% end %>
       <p><%= post.user.name %></p>
       <p><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p>
+  </li>
     <% end %>
+  </ul>
   </div>
+</div>
 <% end %>
 
-<script>
+<script> 
   var search = '<%= search %>'
   var category_id = '<%= category_id %>'
   $('#tab_wrapper input').on('click', (e) => {
