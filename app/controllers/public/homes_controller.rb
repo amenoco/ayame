@@ -6,7 +6,8 @@ class Public::HomesController < ApplicationController
   end
   
   def search
-    @category_posts =  Category.includes(:posts).map{|o| {category: o, posts: (params[:search].present? && (o.id == params[:category_id].to_i || params[:category_id].to_i == 0) ? o.posts.where('text like ?', "%#{params[:search]}%") : o.posts ) } }
+    @category_posts =  Category.includes(:posts).map{|o| {category: o, posts: (params[:search].present? && (o.id == params[:category_id].to_i || params[:category_id].to_i == 0) ? o.posts.where('text like ?', "%#{params[:search]}%").order("id DESC") : o.posts ) } }
+
     @category_id = params[:category_id]
     @search = params[:search]
     render 'public/homes/search'

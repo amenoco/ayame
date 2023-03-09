@@ -3,10 +3,10 @@
     <div class="col-md-9">
       <p><%= link_to @post.user.name, user_path(@post.user) %></p>
       <p><%= @post.title %></p>
-      <p><%= @post.text %></p>
+      <p><%= simple_format(@post.text) %></p>
       <% if @post.images.attached? %>
         <% @post.images.each do |image| %>
-          <%= image_tag image %>
+          <%= image_tag image,size: "500x500" %>
         <% end %>
       <% end %>
   <%= form_with model: @post_post_comment do |f| %>

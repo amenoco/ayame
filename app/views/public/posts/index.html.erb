@@ -15,7 +15,7 @@
         <p><%= post.text %></p>
         <% if post.images.attached? %>
         <% post.images.each do |image| %>
-          <%= image_tag image %>
+          <%= image_tag image, size: "200x200" %>
           <% end %>
         <% end %>
           <p><%= post.user.name %></p>

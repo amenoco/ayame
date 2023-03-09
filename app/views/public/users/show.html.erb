@@ -7,7 +7,7 @@
           <p><%= post.text %></p>
           <% if post.images.attached? %>
           <% post.images.each do |image| %>
-            <%= image_tag image %>
+            <%= image_tag image,size: "500x500" %>
             <% end %>
   <p>コメント件数：<%= post.post_comments.count %></p>
   <% post.post_comments.each do |post_comment| %>
@@ -25,6 +25,6 @@
         <% end %>
         <% end %>
         <div>
-   </div>
+   </div>   
   </div>
 </div>
