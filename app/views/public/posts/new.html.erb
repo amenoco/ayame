@@ -8,14 +8,14 @@
         <%= f.text_field :title %>
       	
         <h6>本文</h6>
-        <%= f.text_area :text %><br>
+        <p><%= f.text_area :text %></p>
       	
-        <%= f.file_field :images, multiple: true %><br>
+        <p><%= f.file_field :images, multiple: true %></p>
         
         <div class="form_input">
-        <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: 'どの投稿をしますか？' } %>
+        <p><%= f.collection_select :category_id, Category.all, :id, :name, { prompt: 'どの投稿をしますか？' } %></p>
         </div>
-        <%= f.submit '投稿する' %>
+        <p><%= f.submit '投稿する' %></p>
       <% end %>
     </div>
   </div>

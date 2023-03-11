@@ -2,9 +2,19 @@
   <div class="row no-gutters">
     <div class="col-md-9">
       <h4><%= @user.name %>さんの投稿</h4>
+          <%#= image_tag @user.get_profile_image(100,100) %>
         <% @posts.each do |post| %>
           <p><%= post.title %></p>
           <p><%= post.text %></p>
+          <p>
+            <% if ((@now - post.created_at).floor / 60) < 60 %>
+              <%= ((@now - post.created_at).floor / 60) %>分前
+            <% elsif ((@now - post.created_at).floor / 3600) < 24 %>
+              <%= ((@now - post.created_at).floor / 3600) %>時間前
+            <% else %>
+              <%= ((@now - post.created_at).floor / 86400) %>日前
+            <% end %>
+          </p>
           <% if post.images.attached? %>
           <% post.images.each do |image| %>
             <%= image_tag image,size: "500x500" %>

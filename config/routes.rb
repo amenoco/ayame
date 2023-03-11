@@ -7,6 +7,7 @@ devise_for :users, controllers: {
   sessions: 'public/sessions',
   passwords: 'public/passwords'
 }
+    
 # 管理者用
 # URL /admin/sign_in ...
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
@@ -31,9 +32,10 @@ scope module: :public do
 
     resources :users, :posts, :details, :address, :my
     
-  end
 resources :posts, only: [:new, :create, :index, :show, :destroy] do
-resources :post_comments, only: [:create]
+resource :favorites, only: [:create, :destroy]
+resources :post_comments, only: [:create, :destroy]
+end
 end
    
 

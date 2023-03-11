@@ -20,7 +20,9 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    # @post = Post.new
     @post_comment = PostComment.new
+    @now = Time.now
   end
 
   def edit
@@ -44,7 +46,7 @@ class Public::PostsController < ApplicationController
 
     if @post.update(post_params)
       redirect_to post_path(@post.id)
-    flash[:notice] ="You have updated book successfully."
+    flash[:notice] ="投稿できました"
     else
       render :edit
     end
@@ -54,11 +56,18 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
+    
+    @PostComment = PostComment.find_by(id: params[:id], post_id: params[:post_id]).destroy
+    redirect_to post_path(params[:post_id])
   end
   
   private
   
   def post_params
     params.require(:post).permit(:title, :text, :category_id, images: []) #categoryを追加
+  end
+  
+  def post_comment_params
+    params.require(:post_comment).permit(:comment)
   end
 end

@@ -10,6 +10,8 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts
+    @now = Time.now
+
   end
 
   def my

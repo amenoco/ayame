@@ -3,6 +3,7 @@ class Public::HomesController < ApplicationController
     @category_posts =  Category.includes(:posts).map{|o| {category: o, posts: o.posts } }
     @category_id = 0
     @search = params[:search]
+    @now = Time.now
   end
   
   def search
