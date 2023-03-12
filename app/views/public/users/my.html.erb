@@ -1,51 +1,61 @@
-<div class="container px-5 px-sm-0">
+<div class="container">
   <div class="row">
-    <div class="col-md-8 offset-md-1">
+    <div class="col-md-6">
       <h4><%= @user.name %>さんのマイページ</h4>
+      
+      <%= image_tag @user.get_profile_image(100,100) %>
       
         <div class="form-group">
           <div class="row">
-          <div class="col-md-12 d-md-flex">
-          <div class="field col-md-5"><%= "ユーザー名" %></div>
-          <div class="col-md-7"><%= @user.name %></div>
-          </div>
+            <div class="col-md-12 d-md-flex">
+              <div class="field col-md-5"><%= "ユーザー名" %></div>
+                <div class="col-md-7"><%= @user.name %></div>
+            </div>
           </div>
         </div>
+        
         <div class="form-group">
           <div class="row">
-          <div class="col-md-12 d-md-flex">
-          <div class="field col-md-5"><%= "メールアドレス" %></div>
-          <div class="col-md-7"><%= @user.email %></div>
-          </div>
+            <div class="col-md-12 d-md-flex">
+              <div class="field col-md-5"><%= "メールアドレス" %></div>
+                <div class="col-md-7"><%= @user.email %></div>
+            </div>
           </div>
         </div>
+        
         <div class="form-group">
           <div class="row">
-          <div class="col-md-12 d-md-flex">
-          <div class="field col-md-5"><%= "都道府県" %></div>
-          <div class="col-md-7"><%= @user.address %></div>
-          </div>
+            <div class="col-md-12 d-md-flex">
+              <div class="field col-md-5"><%= "都道府県" %></div>
+                <div class="col-md-7"><%= @user.address %></div>
+            </div>
           </div>
         </div>
+        
         <div class="form-group">
           <div class="row">
-          <div class="col-md-12 d-md-flex">
-          <div class="field col-md-5"><%= "投稿一覧" %></div>
-            <% @posts.each do |post| %>
-              <p><%= link_to post.title, post_path(post.id) %></p>
-            <% end %>
+            <div class="col-md-4 d-md-flex">
+              <%= link_to edit_user_path(@user.id), class: "btn btn-success" do %>
+                編集する
+              <% end %>
+            </div>
           </div>
-          </div>
-        </div>
+        </div>  
+      </div>
+        
+      <div class="col-md-6">
         <div class="form-group">
-        <div class="row">
-        <div class="col-md-4 d-md-flex">
-          <%= link_to edit_user_path(@user.id), class: "btn btn-success" do %>
-            編集する
-          <% end %>
+          <div class="row">
+            <div class="col-md-12 d-md-flex">
+              <div class="field col-md-5"><%= "投稿一覧" %></div>
+                <% @posts.each do |post| %>
+                  <p>|<%= link_to post.title, post_path(post.id) %></p>
+                <% end %>
+            </div>
+          </div>
         </div>
-        </div>
-        </div>
+      </div>
+      
     </div>
   </div>
 </div>

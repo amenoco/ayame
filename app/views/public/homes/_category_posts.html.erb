@@ -38,6 +38,10 @@
 <% end %>
 
 <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    $('#category_posts_wrapper').children('div').children('div').children('ul').each(function() { $(this).children('li').slice(4, 100).hide() })
+  });
+
   var search = '<%= search %>'
   var category_id = '<%= category_id %>'
   $('#tab_wrapper input').on('click', (e) => {
@@ -46,12 +50,15 @@
     console.log("検索したキーワード：", search)
     console.log("検索したときのタブのカテゴリーID：", category_id)
     console.log("今選んだカテゴリーID：", target_id)
+    
    
     $('#category_id').val(target_id)
     if (target_id === '0') {
        $('.category_posts').show()
+       $('#category_posts_wrapper').children('div').children('div').children('ul').each(function() { $(this).children('li').slice(4, 100).hide() })
     } else {
       $('.category_posts').hide()
+      $('#category_posts_wrapper').children('div').children('div').children('ul').each(function() { $(this).children('li').slice(4, 100).show() })
       $(`#category_posts_${target_id}`).show()
     }
     if (category_id == target_id) {

@@ -5,6 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_one_attached :profile_image
+  def get_profile_image(hight, width)
+    unless profile_image.attached?
+      file_path = Rails.root.join('app/assets/images/sample-author1.png')
+      profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    end
+    profile_image.variant(resize_to_limit: [hight, width]).processed
+  end
   
   validates :email, presence: true
   validates :address, presence: true
@@ -13,6 +20,10 @@ class User < ApplicationRecord
   has_many :posts
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
   
   enum address: { 
     "---":0,

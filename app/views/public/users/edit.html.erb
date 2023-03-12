@@ -11,31 +11,37 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h1>登録内容の変更</h1>
-
-      <div class="form-group">
-        <label>お名前</label>
-          <%= f.text_field :name, class:"form-control" %>
-      </div>
-
-      <div class="form-group">
-        <label>メールアドレス</label>
-          <%= f.text_field :email, class:"form-control" %>
-      </div>
-
-      <div class="form-group">
-        <label>お住いの都道府県</label><br>
-          <%= f.select :address, User.addresses.keys, {} %> 
-      </div>
-      
-      <div class="form-group">
-        <label>パスワード</label>
-          <%= f.password_field :password, class:"form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.submit 'Update Post', class:"btn btn-success" %>
-      </div>
-      
+        <div class="form-group">
+          <label for="inputImage">プロフィール画像</label>
+            <p><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %></p> 
+        </div>
+        <div class="form-group">
+          <label>お名前</label>
+            <%= f.text_field :name, class:"form-control" %>
+        </div>
+  
+        <div class="form-group">
+          <label>メールアドレス</label>
+            <%= f.text_field :email, class:"form-control" %>
+        </div>
+  
+        <div class="form-group">
+          <label>お住いの都道府県</label><br>
+            <%= f.select :address, User.addresses.keys, {} %> 
+        </div>
+        
+        <div class="form-group">
+          <label>パスワード</label>
+            <%= f.password_field :password, class:"form-control" %>
+        </div>
+  
+        <div class="form-group">
+          <%= f.submit '編集する', class:"btn btn-success" %>
+        </div>
+        <div class="actions">
+          <%#= link_to "退会する", unsubscribe_path, class: "btn btn-danger btn-sm" %>
+          <%= link_to "退会する", withdraw_path, method: :patch, data: { confilm: "本当に退会しますか？" }, class: "btn btn-danger btn-sm" %>
+        </div> 
   <%= link_to "マイページ" , my_page_path %>
   </div>
    </div>

@@ -1,40 +1,28 @@
 <div class="container">
   <div class="row no-gutters">
-    <div class="col-md-9">
+    <div class="col-md-6">
       <h4><%= @user.name %>さんの投稿</h4>
-          <%#= image_tag @user.get_profile_image(100,100) %>
-        <% @posts.each do |post| %>
-          <p><%= post.title %></p>
-          <p><%= post.text %></p>
-          <p>
-            <% if ((@now - post.created_at).floor / 60) < 60 %>
-              <%= ((@now - post.created_at).floor / 60) %>分前
-            <% elsif ((@now - post.created_at).floor / 3600) < 24 %>
-              <%= ((@now - post.created_at).floor / 3600) %>時間前
-            <% else %>
-              <%= ((@now - post.created_at).floor / 86400) %>日前
-            <% end %>
-          </p>
+        <p><%= image_tag @user.get_profile_image(100,100) %></p>
+          <p>投稿件数：<%= @post %>件</p>
+    </div>
+    <div class="col-md-6">
+      <% @posts.each do |post| %>
+        <p><%= link_to post.title, post_path(post.id) %></p>
+        <p>
+          <% if ((@now - post.created_at).floor / 60) < 60 %>
+            <%= ((@now - post.created_at).floor / 60) %>分前
+          <% elsif ((@now - post.created_at).floor / 3600) < 24 %>
+            <%= ((@now - post.created_at).floor / 3600) %>時間前
+          <% else %>
+            <%= ((@now - post.created_at).floor / 86400) %>日前
+          <% end %>
+        </p>
           <% if post.images.attached? %>
-          <% post.images.each do |image| %>
+            <% post.images.each do |image| %>
             <%= image_tag image,size: "500x500" %>
             <% end %>
-  <p>コメント件数：<%= post.post_comments.count %></p>
-  <% post.post_comments.each do |post_comment| %>
-    <p><%#= image_tag post_comment.user.get_profile_image(100,100) %></p>
-    <%= post_comment.user.name %>
-    <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-  <% end %>
-</div>
-<div>
-  <%= form_with model: [post, post_comment] do |f| %>
-    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-    <%= f.submit "送信する" %>
-  <% end %>
-</div>
-        <% end %>
-        <% end %>
-        <div>
+          <% end %>
+      <% end %>
    </div>   
   </div>
 </div>

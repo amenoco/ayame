@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row no-gutters">
-    <div class="col-md-9">
+    <div class="col-md-6">
       <p><%= link_to @post.user.name, user_path(@post.user) %></p>
+      <p><%#= image_tag @user.get_profile_image(100,100) %></p>
       <p><%= @post.title %></p>
       <p><%= simple_format(@post.text) %></p>
           <% if @post.images.attached? %>
@@ -40,16 +41,16 @@
             <% end %>
           </p>
         <% end %>
-        
             <%= form_with model: @post_comment, url: post_post_comments_path(post_id: @post.id), method: :post do |f| %>
               <%= f.text_area :comment, rows: '2', placeholder: "コメントをここに" %>
               <%= f.submit "送信する" %>
             <% end %>
             
-        <p>コメント件数：<%= @post.post_comments.count %></p>
+      </div>
+        <div class="col-md-6">
       <% @post.post_comments.each do |post_comment| %>
         <p><%#= image_tag post_comment.user.get_profile_image(100,100) %></p>
-        <p><%= post_comment.comment %></p>
+        <p><%= simple_format(post_comment.comment) %></p>
         <p><%= post_comment.user.name %></p>
         <p>
           <% if ((@now - post_comment.created_at).floor / 60) < 60 %>
@@ -60,13 +61,13 @@
             <%= ((@now - post_comment.created_at).floor / 86400) %>日前
           <% end %>
         </p>
-      <% end %>
-      <% if @post_comment.user == current_user %>
-            
+          <% if @post_comment.user == current_user %>
             <%= link_to post_path(@post_comment.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" do %>
               Destroy
             <% end %>
           <% end %>
+      <% end %>
+        <p>コメント件数：<%= @post.post_comments.count %>件</p>
     </div>
   </div>
 </div>
