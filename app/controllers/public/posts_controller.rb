@@ -20,7 +20,7 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    # @post = Post.new
+    @posts = @post.user
     @post_comment = PostComment.new
     @now = Time.now
   end
@@ -64,7 +64,7 @@ class Public::PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:title, :text, :category_id, images: []) #categoryを追加
+    params.require(:post).permit(:title, :text, :category_id, :profile_image, images: []) #categoryを追加
   end
   
   def post_comment_params

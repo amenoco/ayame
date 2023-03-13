@@ -1,73 +1,73 @@
-<div class="container px-5 px-sm-0">
-
+<div class="container">
   <div class="row">
-    <div class="col-md-8 offset-md-1">
+    <div class="col-md-12 offset-md-1">
       <h4><%= @user.name %>さんの会員詳細</h4>
       <%= form_with model: @user, url: admin_users_path, method: :post do |f| %>
         <div class="form-group">
           <div class="row">
-          <div class="col-md-12 d-md-flex">
-          <div class="field col-md-5">会員ID</div>
-          <div class="col-md-7"><%= @user.id %></div>
-          </div>
-          </div>
+            <div class="col-md-12 d-md-flex">
+              <div class="field col-md-5">会員ID</div>
+                <div class="col-md-7"><%= @user.id %></div>
+              </div>
+            </div>
         </div>
 
         <div class="form-group">
           <div class="row">
-          <div class="col-md-12 d-md-flex">
-          <div class="field col-md-5"><%= f.label "ユーザー名" %></div>
-          <div class="col-md-7"><%= @user.name %></div>
-          </div>
-          </div>
+            <div class="col-md-12 d-md-flex">
+              <div class="field col-md-5"><%= f.label "ユーザー名" %></div>
+                <div class="col-md-7"><%= @user.name %></div>
+            </div>
+           </div>
         </div>
 
         <div class="form-group">
           <div class="row">
-          <div class="col-md-12 d-md-flex">
-          <div class="field col-md-5"><%= f.label "メールアドレス" %></div>
-          <div class="col-md-7"><%= @user.email %></div>
-          </div>
+            <div class="col-md-12 d-md-flex">
+              <div class="field col-md-5"><%= f.label "メールアドレス" %></div>
+                <div class="col-md-7"><%= @user.email %></div>
+            </div>
           </div>
         </div>
         
         <div class="form-group">
           <div class="row">
-          <div class="col-md-12 d-md-flex">
-          <div class="field col-md-5"><%= f.label "都道府県" %></div>
-          <div class="col-md-7"><%= @user.address %></div>
-          </div>
+            <div class="col-md-12 d-md-flex">
+              <div class="field col-md-5"><%= f.label "都道府県" %></div>
+                <div class="col-md-7"><%= @user.address %></div>
+            </div>
           </div>
         </div>
         
         <div class="form-group">
           <div class="row">
-          <div class="col-md-12 d-md-flex">
-          <div class="field col-md-5"><%= f.label "会員ステータス" %></div>
-          <div class="col-md-7">
-            <% if @user.is_deleted %>
-              <div class="text-secondary">無効</div>
-            <% else %>
-              <div class="text-success">有効</div>
-            <% end %>
+            <div class="col-md-12 d-md-flex">
+              <div class="field col-md-5"><%= f.label "会員ステータス" %></div>
+                <div class="col-md-7">
+                  <% if @user.is_deleted %>
+                    <div class="text-secondary">無効</div>
+                  <% else %>
+                    <div class="text-success">有効</div>
+                  <% end %>
+                </div>
+            </div>
           </div>
-          </div>
-          </div>
-          </div>
-          <% end %>
-          <div class="form-group">
+        </div>
+      <% end %>
+      
+        <div class="form-group">
           <div class="row">
-          <div class="col-md-4 d-md-flex">
-        <%= link_to  edit_admin_user_path(@user.id), class: "btn btn-success" do %>
-          編集する
-        <% end %>
-        </div>
-        <div class="col-md-6 d-md-flex">
-        <%#= link_to admin_orders_path, class: "btn btn-primary" do %>
-          <!--注文履歴一覧を見る-->
-        <%# end %>
-        </div>
-        </div>
+            <div class="col-md-4 d-md-flex">
+              <%= link_to  edit_admin_user_path(@user.id), class: "btn btn-success" do %>
+                編集する
+              <% end %>
+            </div>
+            <div class="col-md-6 d-md-flex">
+              <%= link_to admin_posts_path, class: "btn btn-primary" do %>
+                投稿一覧を見る
+              <% end %>
+            </div>
+          </div>
         </div>
     </div>
   </div>

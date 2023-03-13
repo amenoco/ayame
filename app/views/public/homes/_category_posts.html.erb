@@ -3,7 +3,7 @@
   <% posts = data[:posts] %>
     <div id="sec">
   <div id="category_posts_<%= category.id %>" class="container category_posts">
-    <h1><%= category.name %></h1>
+    <h2><%= category.name %></h2>
   <ul class="row">
     <% posts.reverse_each do |post| %>
     <li class="col-md-3">

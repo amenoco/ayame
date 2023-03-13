@@ -1,27 +1,43 @@
 <div class="container">
-  <div class="row no-gutters">
+  <div class="row">
     <div class="col-md-6">
       <h4><%= @user.name %>さんの投稿</h4>
-        <p><%= image_tag @user.get_profile_image(100,100) %></p>
-          <p>投稿件数：<%= @post %>件</p>
+        <%= image_tag @user.get_profile_image(100,100), class: "rounded-circle" %>
+          <p>投稿件数：<%= @posts.count %>件</p>
     </div>
     <div class="col-md-6">
       <% @posts.each do |post| %>
-        <p><%= link_to post.title, post_path(post.id) %></p>
-        <p>
-          <% if ((@now - post.created_at).floor / 60) < 60 %>
-            <%= ((@now - post.created_at).floor / 60) %>分前
-          <% elsif ((@now - post.created_at).floor / 3600) < 24 %>
-            <%= ((@now - post.created_at).floor / 3600) %>時間前
-          <% else %>
-            <%= ((@now - post.created_at).floor / 86400) %>日前
-          <% end %>
-        </p>
-          <% if post.images.attached? %>
-            <% post.images.each do |image| %>
-            <%= image_tag image,size: "500x500" %>
-            <% end %>
-          <% end %>
+      <div class="form-group">
+          <div class="row">
+            <div class="col-md-6">
+              <%= link_to post.title, post_path(post.id) %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6">
+              <% if post.images.attached? %>
+                <% post.images.each do |image| %>
+                <%= image_tag image, width: '50%', height: '50%' %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6">
+              <% if ((@now - post.created_at).floor / 60) < 60 %>
+                <%= ((@now - post.created_at).floor / 60) %>分前
+              <% elsif ((@now - post.created_at).floor / 3600) < 24 %>
+                <%= ((@now - post.created_at).floor / 3600) %>時間前
+              <% else %>
+                <%= ((@now - post.created_at).floor / 86400) %>日前
+              <% end %>
+            </div>
+          </div>
+        </div>
       <% end %>
    </div>   
   </div>

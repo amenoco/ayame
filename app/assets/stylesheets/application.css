@@ -90,3 +90,24 @@ input[name="tab_switch"] {
   margin-left: -10px;
   transition: all 0.3s ease 0s;
 }
+
+h1{
+  font-size:100%;
+  color: #9966FF;
+}
+
+h2{
+  font-size:100%;
+  color: #C299FF;
+  font-weight: 900;
+}
+
+div{
+  font-size:100%;
+  color: #75A9FF;
+}
+
+/*p{*/
+/*  font-size:100%;*/
+/*  color: #6927FF;*/
+/*}*/

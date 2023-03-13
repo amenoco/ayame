@@ -2,7 +2,7 @@
   <div class="row no-gutters">
     <div class="col-md-6">
       <p><%= link_to @post.user.name, user_path(@post.user) %></p>
-      <p><%#= image_tag @user.get_profile_image(100,100) %></p>
+      <p><%= image_tag @posts.get_profile_image(100,100), class: "rounded-circle" %></p>
       <p><%= @post.title %></p>
       <p><%= simple_format(@post.text) %></p>
           <% if @post.images.attached? %>
@@ -29,17 +29,17 @@
           <% end %>
           
           <% if @post.favorited_by?(current_user) %>
+            <%= link_to post_favorites_path(@post), class: "nav-link", method: :delete do %>
           <p>
-            <%= link_to post_favorites_path(@post), method: :delete do %>
-              ♥<%= @post.favorites.count %> いいね
-            <% end %>
+              <i class="fas fa-heart"></i><%= @post.favorites.count %> いいね
           </p>
+            <% end %>
           <% else %>
+            <%= link_to post_favorites_path(@post), class: "nav-link", method: :post do %>
           <p>
-            <%= link_to post_favorites_path(@post), method: :post do %>
-              ♡<%= @post.favorites.count %> いいね
-            <% end %>
+              <i class="far fa-heart"></i><%= @post.favorites.count %> いいね
           </p>
+            <% end %>
         <% end %>
             <%= form_with model: @post_comment, url: post_post_comments_path(post_id: @post.id), method: :post do |f| %>
               <%= f.text_area :comment, rows: '2', placeholder: "コメントをここに" %>
@@ -49,7 +49,7 @@
       </div>
         <div class="col-md-6">
       <% @post.post_comments.each do |post_comment| %>
-        <p><%#= image_tag post_comment.user.get_profile_image(100,100) %></p>
+        <p><%= image_tag post_comment.user.get_profile_image(50,50), class: "rounded-circle" %></p>
         <p><%= simple_format(post_comment.comment) %></p>
         <p><%= post_comment.user.name %></p>
         <p>
