@@ -41,16 +41,23 @@ end
 end
    
 
-#adminの設定
-namespace :admin do
+  #adminの設定
+  namespace :admin do
+  
+  root to: '/admin/homes#top'
 
-root to: '/admin/homes#top'
-
-
+  
     resources :users, :categories, :posts, :details
+    get '/users/:id/posts', to: 'user/posts#index', as: 'user_posts' 
+    # namespace :users do
+    #   resources :posts, only: :index
+    # end
+    # resources :categories, :posts, :details
+    # resources :users do
+    #   resources :posts, only: :index
+    # end
   end
   
-
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 

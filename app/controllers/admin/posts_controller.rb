@@ -3,10 +3,12 @@ class Admin::PostsController < ApplicationController
   def index
     @posts = Post.all
     @post = @posts
+    @now = Time.now
   end
 
   def show
     @post = Post.find(params[:id])
+    @now = Time.now
   end
 
   def edit
