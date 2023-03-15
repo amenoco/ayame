@@ -7,7 +7,7 @@
       <p><%= simple_format(@post.text) %></p>
           <% if @post.images.attached? %>
             <% @post.images.each do |image| %>
-              <%= image_tag image, width: '70%', height: '70%' %>
+              <%= image_tag image, width: '250' %>
             <% end %>
           <% end %>
         <p>
