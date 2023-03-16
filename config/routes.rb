@@ -46,7 +46,7 @@ end
   
   root to: '/admin/homes#top'
 
-  
+    resources :post_comments, only: [:create, :destroy] 
     resources :users, :categories, :posts, :details
     get '/users/:id/posts', to: 'user/posts#index', as: 'user_posts' 
     # namespace :users do

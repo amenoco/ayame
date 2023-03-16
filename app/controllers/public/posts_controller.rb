@@ -59,6 +59,10 @@ class Public::PostsController < ApplicationController
     
     @PostComment = PostComment.find_by(id: params[:id], post_id: params[:post_id]).destroy
     redirect_to post_path(params[:post_id])
+    
+    current_user.post_comments.find(params[:id]).destroy!
+    flash[:notice] = 'コメントを削除しました'
+    redirect_to("/posts/#{params[:post_id]}")
   end
   
   private

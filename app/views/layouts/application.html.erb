@@ -61,8 +61,8 @@
         </div>
       </nav>
       <div class="container">
-        <h1><%= link_to "あやめ", root_path, class: 'nav-link text-info font-weight-bold d-inline' %></h1>
-        <div>ひとり親の方が笑顔になるコミュニティサイト</di>
+        <h1><%= link_to "あやめ", root_path, style: "color: #6A5ACD", class: 'nav-link font-weight-bold d-inline' %></h1>
+        <p>ひとり親の方が笑顔になるコミュニティサイト</p>
       </div>
     </div>
     </header>
@@ -81,17 +81,17 @@
             <table>
             <tr class="p-0 list-unstyled">
               <td>
-                <%= link_to privacy_policy_path, class: "nav-link text-info" do %>
+                <%= link_to privacy_policy_path, style: "color: #87CEFA", class: "nav-link" do %>
                   <h3 title="プライバシーポリシー"><i class="fas fa-lock"></i></h3>
                 <% end %>
               </td>
               <td>
-                <%= link_to terms_path, class: "nav-link text-info" do %>
+                <%= link_to terms_path, style: "color: #87CEFA", class: "nav-link" do %>
                   <h3 title="利用規約"><i class="fas fa-file"></i></h3>
                 <% end %>
               </td>
               <td>
-                <%= link_to guideline_path, class: "nav-link text-info" do %>
+                <%= link_to guideline_path, style: "color: #87CEFA", class: "nav-link" do %>
                   <h3 title="コミュニティガイドライン"><i class="fas fa-users"></i></h3>
                 <% end %>
               </td>
