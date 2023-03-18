@@ -44,18 +44,40 @@
       </div>
         
       <div class="col-md-6">
-              <div class="field col-md-5"><%= "投稿一覧" %></div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-4 d-md-flex">
+              <%= "投稿一覧" %>
+            </div>
+          </div>
+        </div>  
+        
+        <% @posts.each do |post| %>
         <div class="form-group">
           <div class="row">
             <div class="col-md-12 d-md-flex">
-                <% @posts.each do |post| %>
-                  <p><%= link_to post.title, post_path(post.id) %></p>
-                <% end %>
+              <div class="field col-md-3"><%= link_to post.title, post_path(post.id) %></div>
+              <div class="col-md-5"><% @category_posts.map{|o| o[:category]}.each do |category| %>
+          <input id="tab_category_<%= category.id %>" type="radio" name="tab_switch">
+          <label class="tab_label" for="tab_category_<%= category.id %>"><%= category.name %></label>
+        <% end %></div>
+                <div class="col-md-4">
+                  <% if ((@now - post.created_at).floor / 60) < 60 %>
+                    <%= ((@now - post.created_at).floor / 60) %>分前
+                  <% elsif ((@now - post.created_at).floor / 3600) < 24 %>
+                    <%= ((@now - post.created_at).floor / 3600) %>時間前
+                  <% else %>
+                    <%= ((@now - post.created_at).floor / 86400) %>日前
+                  <% end %>
+                </div>
             </div>
           </div>
-        </div>
+        </div>  
+        <% end %>
+        
       </div>
       
+      </div>
     </div>
   </div>
 </div>

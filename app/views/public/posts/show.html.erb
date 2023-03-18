@@ -41,7 +41,7 @@
           </p>
             <% end %>
         <% end %>
-            <%= form_with model: @post_comment, url: post_post_comments_path(post_id: @post.id), method: :post do |f| %>
+            <%= form_with model: @post_comment, url:post_post_comments_path(@post.id), method: :post do |f| %>
               <%= f.text_area :comment, rows: '2', placeholder: "コメントをここに" %>
               <%= f.submit "送信する" %>
             <% end %>
@@ -62,7 +62,7 @@
           <% end %>
         </p>
           <% if post_comment.user == current_user %>
-            <%= link_to post_post_comments_path(id: post_comment.id ,post_id: post_comment.post_id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" do %>
+            <%= link_to post_post_comment_path(post_comment.post_id, post_comment.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" do %>
               Destroy
             <% end %>
           <% end %>

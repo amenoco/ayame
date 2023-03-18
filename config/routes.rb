@@ -34,19 +34,20 @@ scope module: :public do
 
     resources :users, :posts, :details, :address, :my
     
-resources :posts, only: [:new, :create, :index, :show, :destroy] do
-resource :favorites, only: [:create, :destroy]
-resources :post_comments, only: [:create, :destroy]
+    resources :posts, only: [:new, :create, :index, :show, :destroy] do
+      resource :favorites, only: [:create, :destroy]
+    resources :post_comments, only: [:create, :destroy]
+    end
 end
-end
-   
+       
 
   #adminの設定
   namespace :admin do
   
   root to: '/admin/homes#top'
-
-    resources :post_comments, only: [:create, :destroy] 
+    resources :posts, only: [:new, :create, :index, :show, :destroy] do
+      resources :post_comments, only: [:create, :destroy] 
+    end
     resources :users, :categories, :posts, :details
     get '/users/:id/posts', to: 'user/posts#index', as: 'user_posts' 
     # namespace :users do
