@@ -96,18 +96,80 @@ h1{
   color: #9966FF;
 }
 
+
 h2{
   font-size:100%;
   color: #C299FF;
   font-weight: 900;
 }
 
-div{
+/*ページ名*/
+h4{
   font-size:100%;
-  color: #75A9FF;
+  color: #9999ff;
 }
 
-/*p{*/
-/*  font-size:100%;*/
-/*  color: #6927FF;*/
-/*}*/
+/*投稿一覧*/
+h5{
+  font-size:100%;
+  color: #c489ff;
+}
+
+/*いいね*/
+h6{
+  font-size:100%;
+  color: #ff8ec6;
+  font-weight: bold;
+}
+/*投稿等の色*/
+div{
+  font-size:100%;
+  color: #7fbfff;
+}
+
+/*固定文字*/
+p{
+  font-size:100%;
+  color: #c489ff;
+}
+
+
+
+
+
+a.btn {
+  color: #fff;
+  border-radius: 100vh;
+}
+
+a.delete-btn {
+  background-color: red;
+}
+
+a.delete-btn:hover {
+  color: #fff;
+  background: #028760;
+}
+
+a.edit-btn {
+  background-color: #38b48b;
+  margin: 0px 24px;
+}
+
+a.edit-btn:hover {
+  background-color: #38b48b;
+}
+
+
+.navbar-toggler{
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.jumbotron {
+  background-color: white !important;
+}

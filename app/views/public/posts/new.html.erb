@@ -3,20 +3,20 @@
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2>新規投稿</h2>
       <!-- form_with部分 -->
-      <%= form_with model: @post do |f| %>
-        <h6>タイトル</h6>
-        <%= f.text_field :title %>
-      	
-        <h6>本文</h6>
-        <p><%= f.text_area :text %></p>
-      	
-        <p><%= f.file_field :images, multiple: true %></p>
-        
-        <div class="form_input">
-        <p><%= f.collection_select :category_id, Category.all, :id, :name, { prompt: 'どの投稿をしますか？' } %></p>
-        </div>
-        <p><%= f.submit '投稿する' %></p>
-      <% end %>
+        <%= form_with model: @post do |f| %>
+          <h6>タイトル</h6>
+            <%= f.text_field :title %>
+        	
+          <h6>本文</h6>
+            <%= f.text_area :text %>
+        	
+            <%= f.file_field :images, multiple: true %>
+          
+          <div class="form_input">
+            <p><%= f.collection_select :category_id, Category.all, :id, :name, { prompt: 'どの投稿をしますか？' }, style: "color: #0066CC" %></p>
+            <p><%= f.submit '投稿する' %></p>
+          </div>
+        <% end %>
     </div>
   </div>
 </div>

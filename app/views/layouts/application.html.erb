@@ -10,56 +10,55 @@
     }
     --></style>
 
-    <title>Ayame</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <title>Ayame</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+          <%= csrf_meta_tags %>
+          <%= csp_meta_tag %>
+          
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+          <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+          <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+          <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class="d-flex flex-column vh-100">
-    <header>
+    <header class="header">
       <div class="jumbotron">　
-      <nav class="navbar navbar-expand-lg ">
-        <div class="container">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-            <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to '投稿フォーム', new_post_path, class: 'nav-link text-dark' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'マイページ',  my_page_path, class: 'nav-link text-dark' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
-            </li>
-            <% else %>
-            <li class="nav-item">
-              <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'ゲストユーザー', guest_path, method: :post, class: 'nav-link text-dark' %>
-            </li>
-            <% end %>
-            </ul>
+        <nav class="navbar navbar-expand-lg ">
+          <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to '投稿フォーム', new_post_path, style: "color: #674196", class: 'nav-link font-weight-bold' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'マイページ',  my_page_path, style: "color: #674196", class: 'nav-link font-weight-bold' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ログアウト", destroy_user_session_path, style: "color: #674196", method: :delete, class: 'nav-link font-weight-bold' %>
+              </li>
+              <% else %>
+              <li class="nav-item">
+                <%= link_to "新規登録", new_user_registration_path, style: "color: #ffffcc", class: 'nav-link font-weight-bold' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ログイン", new_user_session_path, style: "color: #ffffcc", class: 'nav-link font-weight-bold' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'ゲストユーザー', guest_path, style: "color: #ffffcc", method: :post, class: 'nav-link font-weight-bold' %>
+              </li>
+              <% end %>
+              </ul>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
       <div class="container">
         <h1><%= link_to "あやめ", root_path, style: "color: #6A5ACD", class: 'nav-link font-weight-bold d-inline' %></h1>
         <p>ひとり親の方が笑顔になるコミュニティサイト</p>

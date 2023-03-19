@@ -3,12 +3,12 @@
     <div class="col-md-6">
       <h4><%= @user.name %>さんのマイページ</h4>
       
-      <%= image_tag @user.get_profile_image(100,100), class: "rounded-circle" %>
+         <p><%= image_tag @user.get_profile_image(100,100), class: "rounded-circle" %></p>
       
         <div class="form-group">
           <div class="row">
             <div class="col-md-12 d-md-flex">
-              <div class="field col-md-5"><%= "ユーザー名" %></div>
+              <div class="field col-md-5"><p>ユーザー名</p></div>
                 <div class="col-md-7"><%= @user.name %></div>
             </div>
           </div>
@@ -17,7 +17,7 @@
         <div class="form-group">
           <div class="row">
             <div class="col-md-12 d-md-flex">
-              <div class="field col-md-5"><%= "メールアドレス" %></div>
+              <div class="field col-md-5"><p>メールアドレス</p></div>
                 <div class="col-md-7"><%= @user.email %></div>
             </div>
           </div>
@@ -26,7 +26,7 @@
         <div class="form-group">
           <div class="row">
             <div class="col-md-12 d-md-flex">
-              <div class="field col-md-5"><%= "都道府県" %></div>
+              <div class="field col-md-5"><p>都道府県</p></div>
                 <div class="col-md-7"><%= @user.address %></div>
             </div>
           </div>
@@ -35,8 +35,8 @@
         <div class="form-group">
           <div class="row">
             <div class="col-md-4 d-md-flex">
-              <%= link_to edit_user_path(@user.id), class: "btn btn-success" do %>
-                編集する
+              <%= link_to edit_user_path(@user.id), class: "btn btn--orange btn--radius" do %>
+                編集する 
               <% end %>
             </div>
           </div>
@@ -47,37 +47,44 @@
         <div class="form-group">
           <div class="row">
             <div class="col-md-4 d-md-flex">
-              <%= "投稿一覧" %>
+              <h5 class="font-weight-bold">投稿一覧</h5>
             </div>
           </div>
         </div>  
+        
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-4 d-md-flex">
+              <p>タイトル</p>
+            </div>
+            <div class="col-md-4 d-md-flex">
+              <p>カテゴリー</p>
+            </div>
+            <div class="col-md-4 d-md-flex">
+              <p>投稿日</p>
+            </div>
+          </div>
+        </div> 
         
         <% @posts.each do |post| %>
         <div class="form-group">
           <div class="row">
             <div class="col-md-12 d-md-flex">
-              <div class="field col-md-3"><%= link_to post.title, post_path(post.id) %></div>
-              <div class="col-md-5"><% @category_posts.map{|o| o[:category]}.each do |category| %>
-          <input id="tab_category_<%= category.id %>" type="radio" name="tab_switch">
-          <label class="tab_label" for="tab_category_<%= category.id %>"><%= category.name %></label>
-        <% end %></div>
-                <div class="col-md-4">
-                  <% if ((@now - post.created_at).floor / 60) < 60 %>
-                    <%= ((@now - post.created_at).floor / 60) %>分前
-                  <% elsif ((@now - post.created_at).floor / 3600) < 24 %>
-                    <%= ((@now - post.created_at).floor / 3600) %>時間前
-                  <% else %>
-                    <%= ((@now - post.created_at).floor / 86400) %>日前
-                  <% end %>
-                </div>
+              <div class="field col-md-4"><%= link_to post.title, post_path(post.id), style: "color: #7fbfff" %></div>
+                <div class="col-md-4"><%= post.category.name %></div>
+                  <div class="col-md-4">
+                    <% if ((@now - post.created_at).floor / 60) < 60 %>
+                      <%= ((@now - post.created_at).floor / 60) %>分前
+                    <% elsif ((@now - post.created_at).floor / 3600) < 24 %>
+                      <%= ((@now - post.created_at).floor / 3600) %>時間前
+                    <% else %>
+                      <%= ((@now - post.created_at).floor / 86400) %>日前
+                    <% end %>
+                  </div>
             </div>
           </div>
-        </div>  
+        </div> 
         <% end %>
-        
       </div>
-      
-      </div>
-    </div>
   </div>
 </div>
