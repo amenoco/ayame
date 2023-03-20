@@ -69,7 +69,7 @@
               </p>
               
                 <% if post_comment.user == current_user %>
-                  <%= link_to post_post_comment_path(post_comment.post_id, post_comment.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-smbtn btn--orange btn--radius" do %>
+                  <%= link_to post_post_comment_path(post_comment.post_id, post_comment.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn delete-btn" do %>
                     削除する
                   <% end %>
                 <% end %>

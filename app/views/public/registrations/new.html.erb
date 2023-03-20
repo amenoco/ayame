@@ -7,7 +7,7 @@
           
           <div class="field">
             <%= f.label :お名前 %><br>
-            <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+            <%= f.text_field :name, :size => "15", placeholder: "ニックネーム", autofocus: true %>
           </div>
         
           <div class="field">
@@ -22,7 +22,7 @@
           
           <div class="field">
             <%= f.label :プロフィール画像 %><br>
-            <%= f.file_field :profile_image %>
+            <p><%= f.file_field :profile_image %></p>
           </div>
         
           <div class="field">
@@ -30,7 +30,7 @@
             <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em>
             <% end %><br>
-            <%= f.password_field :password, autocomplete: "new-password" %>
+            <p><%= f.password_field :password, autocomplete: "new-password" %></p>
           </div>
         
           <div class="field">

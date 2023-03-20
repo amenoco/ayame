@@ -20,7 +20,7 @@
                 <% end %>
               </p>
           
-                  <%= link_to post_path(@post.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn--orange btn--radius" do %>
+                  <%= link_to post_path(@post.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn delete-btn" do %>
                     削除
                   <% end %>
                 
@@ -40,7 +40,7 @@
                   <%= ((@now - post_comment.created_at).floor / 86400) %>日前
                 <% end %>
               </p>
-                <%= link_to admin_post_post_comment_path(post_comment.post_id, post_comment.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-sm btn-danger" do %>
+                <%= link_to admin_post_post_comment_path(post_comment.post_id, post_comment.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn delete-btn" do %>
                   Destroy
                 <% end %>
       <% end %>

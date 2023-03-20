@@ -96,7 +96,7 @@ h1{
   color: #9966FF;
 }
 
-
+/*タイトル*/
 h2{
   font-size:100%;
   color: #C299FF;
@@ -133,7 +133,10 @@ p{
   color: #c489ff;
 }
 
-
+label{
+  font-size:100%;
+  color: #c489ff;
+}
 
 
 
@@ -142,22 +145,34 @@ a.btn {
   border-radius: 100vh;
 }
 
+a.my-btn {
+  background-color: #6eadff;
+  margin: 12px 12px;
+}
+
+a.my-btn:hover {
+  background-color: #5383c3;
+  margin: 12px 12px;
+}
+
 a.delete-btn {
-  background-color: red;
+  background-color: #ff9e9e;
+  margin: 12px 12px;
 }
 
 a.delete-btn:hover {
   color: #fff;
-  background: #028760;
+  background: #ff7f7f;
 }
 
 a.edit-btn {
-  background-color: #38b48b;
-  margin: 0px 24px;
+  background-color: #20b2aa;
+  margin: 12px 12px;
 }
 
 a.edit-btn:hover {
-  background-color: #38b48b;
+  color: #fff;
+  background-color: #008b8b;
 }
 
 
