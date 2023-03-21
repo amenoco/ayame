@@ -1,16 +1,16 @@
 <div class="container">
-  <div class="row no-gutters">
+  <div class="row">
     <div class="col-md-6">
-      <p><%= link_to @post.user.name, user_path(@post.user) %></p>
+      <h4><%= link_to @post.user.name, user_path(@post.user), style: "color: #9999ff", class: 'nav-link font-weight-bold d-inline' %></h4>
         <p><%= image_tag @posts.get_profile_image(100,100), class: "rounded-circle" %></p>
           <p><%= @post.title %></p>
             <p><%= simple_format(@post.text) %></p>
             
-              <% if @post.images.attached? %>
-                <% @post.images.each do |image| %>
-                  <%= image_tag image, width: '250' %>
+                <% if @post.images.attached? %>
+                  <% @post.images.each do |image| %>
+                    <%= image_tag image, width: '250' %>
+                  <% end %>
                 <% end %>
-              <% end %>
               
               <p>
                 <% if ((@now - @post.created_at).floor / 60) < 60 %>
@@ -22,33 +22,33 @@
                 <% end %>
               </p>
           
-              <% if @post.user == current_user %>
-                <%= link_to edit_post_path(@post.id), class: "btn edit-btn" do %>
-                  編集する
+                <% if @post.user == current_user %>
+                  <%= link_to edit_post_path(@post.id), class: "btn edit-btn" do %>
+                    編集する
+                  <% end %>
+                  <%= link_to post_path(@post.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn delete-btn" do %>
+                    削除する
+                  <% end %>
                 <% end %>
-                <%= link_to post_path(@post.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn delete-btn" do %>
-                  削除する
-                <% end %>
-              <% end %>
               
-              <% if @post.favorited_by?(current_user) %>
-                <%= link_to post_favorites_path(@post), style: "color: #ff8ec6", class: "nav-link", method: :delete do %>
-              <h6>
-                  <i class="fas fa-heart"></i><%= @post.favorites.count %> いいね
-              </h6>
+                <% if @post.favorited_by?(current_user) %>
+                  <%= link_to post_favorites_path(@post), style: "color: #ff8ec6", class: "nav-link", method: :delete do %>
+                <h6>
+                    <i class="fas fa-heart"></i><%= @post.favorites.count %> いいね
+                </h6>
+                  <% end %>
+                <% else %>
+                  <%= link_to post_favorites_path(@post), class: "nav-link", method: :post do %>
+                <h6>
+                    <i class="far fa-heart"></i><%= @post.favorites.count %> いいね
+                </h6>
+                  <% end %>
                 <% end %>
-              <% else %>
-                <%= link_to post_favorites_path(@post), class: "nav-link", method: :post do %>
-              <h6>
-                  <i class="far fa-heart"></i><%= @post.favorites.count %> いいね
-              </h6>
-                <% end %>
-              <% end %>
               
-              <%= form_with model: @post_comment, url:post_post_comments_path(@post.id), method: :post do |f| %>
-                <%= f.text_area :comment, rows: '2', placeholder: "コメントをここに" %>
-                <%= f.submit "送信する" %>
-              <% end %>
+                <%= form_with model: @post_comment, url:post_post_comments_path(@post.id), method: :post do |f| %>
+                  <%= f.text_area :comment, rows: '2', placeholder: "コメントをここに記入" %>
+                  <p><%= f.submit "送信する", class: "btn send-btn" %></p>
+                <% end %>
             
     </div>
     
@@ -57,8 +57,8 @@
       <% @post.post_comments.each do |post_comment| %>
         <p><%= image_tag post_comment.user.get_profile_image(50,50), class: "rounded-circle" %></p>
           <p><%= simple_format(post_comment.comment) %></p>
-            <p><%= post_comment.user.name %></p>
-              <p>
+            <p><%= post_comment.user.name %>
+              
                 <% if ((@now - post_comment.created_at).floor / 60) < 60 %>
                   <%= ((@now - post_comment.created_at).floor / 60) %>分前
                 <% elsif ((@now - post_comment.created_at).floor / 3600) < 24 %>

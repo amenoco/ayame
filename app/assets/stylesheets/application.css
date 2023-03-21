@@ -145,14 +145,18 @@ a.btn {
   border-radius: 100vh;
 }
 
-a.my-btn {
+input.send-btn {
+  color: #fff;
   background-color: #6eadff;
-  margin: 12px 12px;
+  border-radius: 100vh;
+  margin: 6px 0px;
 }
 
-a.my-btn:hover {
+input.send-btn:hover {
+  color: #fff;
   background-color: #5383c3;
-  margin: 12px 12px;
+  border-radius: 100vh;
+  margin: 6px 0px;
 }
 
 a.delete-btn {
@@ -174,7 +178,6 @@ a.edit-btn:hover {
   color: #fff;
   background-color: #008b8b;
 }
-
 
 .navbar-toggler{
   border-color: transparent;

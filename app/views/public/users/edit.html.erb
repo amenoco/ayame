@@ -12,26 +12,26 @@
         <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
           <h2 class="font-weight-bold">登録内容の変更</h2>
             <div class="form-group">
-              <label for="inputImage">プロフィール画像</label>
-                <p><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %></p> 
+              <%= f.label :プロフィール画像 %>
+                <p class=styles: "color  #a3d6cc"><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %></p> 
             </div>
             <div class="form-group">
-              <label>お名前</label>
+              <%= f.label :お名前 %>
                 <%= f.text_field :name, class: "form-control" %>
             </div>
       
             <div class="form-group">
-              <label>メールアドレス</label>
+              <%= f.label :メールアドレス %>
                 <%= f.text_field :email, class: "form-control" %>
             </div>
       
             <div class="form-group">
-              <label>お住いの都道府県</label><br>
-                <%= f.select :address, User.addresses.keys, {} %> 
+              <%= f.label :お住いの都道府県 %>
+                <p><%= f.select :address, User.addresses.keys, {} %></p>
             </div>
             
             <div class="form-group">
-              <label>パスワード</label>
+              <%= f.label :パスワード %>
                 <%= f.password_field :password, class: "form-control" %>
             </div>
       
