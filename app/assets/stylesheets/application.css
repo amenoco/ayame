@@ -138,7 +138,13 @@ label{
   color: #c489ff;
 }
 
+span.published {
+  color: #73e6ac;
+}
 
+span.unpublished {
+  color: #ff7f7f;
+}
 
 a.btn {
   color: #fff;
@@ -159,6 +165,18 @@ input.send-btn:hover {
   margin: 6px 0px;
 }
 
+input.new-btn {
+  color: #fff;
+  background-color: #6eadff;
+  border-radius: 100vh;
+}
+
+input.new-btn:hover {
+  color: #fff;
+  background-color: #5383c3;
+  border-radius: 100vh;
+}
+
 a.delete-btn {
   background-color: #ff9e9e;
   margin: 12px 12px;
@@ -177,6 +195,29 @@ a.edit-btn {
 a.edit-btn:hover {
   color: #fff;
   background-color: #008b8b;
+}
+
+.  {
+  border: 2px #f2e5ff;
+  color: #9580ff;
+  background-color: #f2e5ff;
+  padding: 0.2em;
+  line-height: 2;
+  border-radius: 100vh;
+}
+
+.textlines{
+  border: 2px #f2e5ff;  /* 枠線 */
+  color: #9580ff;
+  border-radius: 1em;   /* 角丸 */
+  padding: 0.2em;          /* 内側の余白量 */
+  background-color: #f2e5ff;  /* 背景色 */
+  width: 16.5em;             /* 横幅 */
+  height: 120px;           /* 高さ */
+  font-size: 1em;          /* 文字サイズ */
+  line-height: 1.2;        /* 行の高さ */
+  /*background-color: #20b2aa;*/
+  /*margin: 12px 12px;*/
 }
 
 .navbar-toggler{

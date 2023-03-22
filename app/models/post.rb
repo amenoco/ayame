@@ -25,4 +25,8 @@ class Post < ApplicationRecord
       end
       profile_image.variant(resize_to_limit: [hight, width]).processed
     end
+    
+     # 公開・非公開機能
+  scope :published, -> {where(is_published_flag: true)}
+  scope :unpublished, -> {where(is_published_flag: false)}
 end

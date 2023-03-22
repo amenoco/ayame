@@ -1,32 +1,32 @@
 <div class="container">
-  <div class="row no-gutters">
-    <div class="col-md-9">
+  <div class="row offset-sm-1">
+    <div class="col-sm-12 col-md-12 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2>ログイン</h2>
       
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
-          <%= f.label :メールアドレス %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.label :メールアドレス %>
+          <p><%= f.email_field :email, class: "text-box", :size => "30", autofocus: true, placeholder: "sample@example.com" %></p>
         </div>
       
         <div class="field">
-          <%= f.label :パスワード %><br />
-          <%= f.password_field :password, autocomplete: "current-password" %>
+          <%= f.label :パスワード %>
+          <p><%= f.password_field :password, class: "text-box", :size => "30", autocomplete: "current-password" %></p>
         </div>
       
         <% if devise_mapping.rememberable? %>
           <div class="field">
-            <%= f.check_box :remember_me %>
-            <%= f.label :ログインしたままにする %>
+            <P><%= f.check_box :remember_me %>
+            <%= f.label :ログインしたままにする %></P>
           </div>
         <% end %>
       
         <div class="actions">
-          <%= f.submit "ログイン" %>
+         <p><%= f.submit "ログイン", class: "btn new-btn" %></p>
         </div>
       <% end %>
       
-     まだ登録されていない方は<%= link_to "こちら", new_user_registration_path %>
+    <p>まだ登録されていない方は<%= link_to "こちら", new_user_registration_path, style: "color: #84a2d4" %></p>
     </div>
   </div>
 </div>

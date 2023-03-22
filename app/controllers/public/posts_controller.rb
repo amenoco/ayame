@@ -1,10 +1,12 @@
 class Public::PostsController < ApplicationController
+   before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
   
   def new
     @post = Post.new
   end
 
   def index
+    @post = Post.published
     @posts = Post.left_joins(:category).all
     @category_name = '全体'
 
@@ -35,7 +37,7 @@ class Public::PostsController < ApplicationController
     
     @post.save
     if @post.save
-      redirect_to posts_path
+      redirect_to post_path(@post.id)
     else
       render :new
     end
@@ -61,7 +63,7 @@ class Public::PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:title, :text, :category_id, :profile_image, images: []) #categoryを追加
+    params.require(:post).permit(:title, :text, :category_id, :profile_image, :is_published_flag, images: []) #categoryを追加
   end
   
   def post_comment_params

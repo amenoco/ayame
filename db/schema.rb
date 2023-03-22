@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 2023_03_11_115458) do
     t.string "text", default: "", null: false
     t.integer "user_id", null: false
     t.integer "category_id", null: false
+    t.boolean "is_published_flag", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

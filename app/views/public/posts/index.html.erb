@@ -8,8 +8,7 @@
       <% end %> 
       
       
-      <h1><%= @category_name %></h1>
-      <%= link_to '新規投稿', new_post_path, class: 'text-dark' %>
+      <h2><%= @category_name %></h2>
       <% @posts.each do |post| %>
         <p><%= link_to post.title, post_path(post.id) %></p>
         <p><%= post.text %></p>
