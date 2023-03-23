@@ -8,6 +8,7 @@ class Admin::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @post_comment = PostComment.new
     @now = Time.now
   end
 
@@ -27,7 +28,7 @@ class Admin::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to admin_posts_path
+    redirect_to admin_posts_pats
   end
   
   private

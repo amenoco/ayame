@@ -21,6 +21,15 @@
                   <%= ((@now - @post.created_at).floor / 86400) %>日前
                 <% end %>
               </p>
+                <% if @post.user == current_user %>
+                  <div class="col-md-3">
+                    <% if @post.is_published_flag %>
+                      <span class="published">公開</span>
+                    <% else %>
+                      <span class="unpublished">非公開</span>
+                    <% end %>
+                  </div>
+                <% end %>
           
                 <% if @post.user == current_user %>
                   <%= link_to edit_post_path(@post.id), class: "btn edit-btn" do %>

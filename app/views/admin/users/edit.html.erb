@@ -1,2 +1,52 @@
-<h1>Admin::Users#edit</h1>
-<p>Find me in app/views/admin/users/edit.html.erb</p>
+<div class="container">
+  <div class="row offset-md-1">
+    <div class="col-md-8 offset-md-1">
+      <h4><%= @user.name %>さんの会員情報編集</h4>
+      <%= form_with model: @user, url: admin_user_path, method: :patch do |f| %>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-10 d-md-flex">
+              <div class="col-5 offset-md-1"><%= f.label "会員ID" %></div>
+                <div class="col-md-7"><%= @user.id %></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-4 offset-md-1"><%= f.label "名前" %></div>
+              <div class="col-3"><%= f.text_field :name, :size => "30", class: "text-box" %></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-4 offset-md-1"><%= f.label "お住いの都道府県" %></div>
+            <div class="col-3"><%= f.select :address, User.addresses.keys, {}, style: "color: #bf7fff" %></div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <div class="row">
+            <div class="col-4 offset-md-1"><%= f.label "メールアドレス" %></div>
+            <div class="col-2"><%= f.email_field :email, :size => "30", class: "text-box" %></div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <div class="row">
+            <div class="col-4 offset-md-1"><%= f.label "会員ステータス" %></div>
+            <div class="col-4"><%= f.radio_button :is_deleted, :false %><%= f.label "有効" %>
+            <%= f.radio_button :is_deleted, true %><%= f.label "退会" %></div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit '編集内容を保存する', class:"btn edit-btn" %>
+        </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

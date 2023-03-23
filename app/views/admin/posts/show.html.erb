@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row no-gutters">
     <div class="col-md-6">
-      <p><%= link_to @post.user.name, user_path(@post.user) %></p>
+      <h4><%= @post.user.name %></h4>
         <p><%= @post.title %></p>
          <p><%= simple_format(@post.text) %></p>
          
@@ -20,7 +20,7 @@
                 <% end %>
               </p>
           
-                  <%= link_to post_path(@post.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn delete-btn" do %>
+                  <%= link_to admin_post_path(@post.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn delete-btn" do %>
                     削除
                   <% end %>
                 

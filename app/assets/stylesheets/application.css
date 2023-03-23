@@ -151,6 +151,19 @@ a.btn {
   border-radius: 100vh;
 }
 
+/*青*/
+a.send-btn {
+  color: #fff;
+  background-color: #6eadff;
+   margin: 12px 12px;
+}
+
+a.send-btn:hover {
+  color: #fff;
+  background-color: #5383c3;
+   margin: 12px 12px;
+}
+
 input.send-btn {
   color: #fff;
   background-color: #6eadff;
@@ -177,6 +190,7 @@ input.new-btn:hover {
   border-radius: 100vh;
 }
 
+/*赤*/
 a.delete-btn {
   background-color: #ff9e9e;
   margin: 12px 12px;
@@ -187,6 +201,7 @@ a.delete-btn:hover {
   background: #ff7f7f;
 }
 
+/*緑*/
 a.edit-btn {
   background-color: #20b2aa;
   margin: 12px 12px;
@@ -197,10 +212,23 @@ a.edit-btn:hover {
   background-color: #008b8b;
 }
 
-.  {
+input.edit-btn {
+  color: #fff;
+  background-color: #20b2aa;
+  margin: 12px 0px;
+  border-radius: 100vh;
+}
+
+input.edit-btn:hover {
+  color: #fff;
+  background-color: #008b8b;
+  border-radius: 100vh;
+}
+
+.text-box {
   border: 2px #f2e5ff;
   color: #9580ff;
-  background-color: #f2e5ff;
+  background-color: #f9f4ff;
   padding: 0.2em;
   line-height: 2;
   border-radius: 100vh;
@@ -211,7 +239,7 @@ a.edit-btn:hover {
   color: #9580ff;
   border-radius: 1em;   /* 角丸 */
   padding: 0.2em;          /* 内側の余白量 */
-  background-color: #f2e5ff;  /* 背景色 */
+  background-color: #f9f4ff;  /* 背景色 */
   width: 16.5em;             /* 横幅 */
   height: 120px;           /* 高さ */
   font-size: 1em;          /* 文字サイズ */

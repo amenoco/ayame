@@ -6,7 +6,7 @@
         <div class="form-group">
           <div class="row">
             <div class="col-md-12 d-md-flex">
-              <div class="field col-md-5">会員ID</div>
+              <div class="field col-md-5"><%= f.label "会員ID" %></div>
                 <div class="col-md-7"><%= @user.id %></div>
               </div>
             </div>
@@ -58,13 +58,13 @@
         <div class="form-group">
           <div class="row">
             <div class="col-md-2 d-md-flex">
-              <%= link_to  edit_admin_user_path(@user.id), class: "btn btn-success" do %>
+              <%= link_to  edit_admin_user_path(@user.id), class: "btn edit-btn" do %>
                 編集する
               <% end %>
             </div>
             <div class="col-md-3 d-md-flex">
-              <%= link_to admin_user_posts_path, class: "btn btn-primary" do %>
-                投稿一覧を見る
+              <%= link_to admin_user_posts_path, class: "btn send-btn" do %>
+                投稿一覧
               <% end %>
             </div>
           </div>

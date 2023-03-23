@@ -1,21 +1,21 @@
 <div class="container">
-  <div class="row no-gutters">
-    <div class="col-md-9">
+  <div class="row offset-md-1">
+    <div class="col-ms-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto offset-md-1">
       <h2>管理者ログイン</h2>
       
       <%= form_with model: @admin, url: admin_session_path do |f| %>
         <div class="field">
           <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, class: "text-box", :size => "30", autofocus: true, autocomplete: "email" %>
         </div>
       
         <div class="field">
           <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "current-password" %>
+          <%= f.password_field :password, class: "text-box", :size => "30", autocomplete: "current-password" %>
         </div>
         
     
-    <%= f.submit "ログイン", class: "btn btn-primary btn-sm" %>
+    <p><%= f.submit "ログイン", class: "btn send-btn" %></p>
 <% end %>
  
 
