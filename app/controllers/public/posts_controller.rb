@@ -69,4 +69,11 @@ class Public::PostsController < ApplicationController
   def post_comment_params
     params.require(:post_comment).permit(:comment)
   end
+  
+  def is_matching_login_user
+    post = Post.find(params[:id])
+    unless post.id == current_user.id
+      redirect_to root_path
+    end
+  end
 end
