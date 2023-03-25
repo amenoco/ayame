@@ -1,5 +1,5 @@
-class Public::PostsController < ApplicationController
-  # before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
+class Public::PostsController < PublicController
+  before_action :is_matching_login_user, only: [:edit]
   
   def new
     @post = Post.new
@@ -57,7 +57,7 @@ class Public::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path
+    redirect_to root_path
   end
   
   private
@@ -72,7 +72,7 @@ class Public::PostsController < ApplicationController
   
   def is_matching_login_user
     post = Post.find(params[:id])
-    unless post.id == current_user.id
+    if post.user_id != current_user.id
       redirect_to root_path
     end
   end

@@ -1,4 +1,4 @@
-class Category::CategoriesController < ApplicationController
+class Category::CategoriesController < PublicController
   
   def new
   end

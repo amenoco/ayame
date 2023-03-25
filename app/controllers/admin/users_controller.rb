@@ -1,4 +1,5 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < AdminController
+ 
 
   def index
     @user = User.new
@@ -29,10 +30,10 @@ private
     params.require(:user).permit(:name, :email, :encrypted_password, :address, :is_deleted)
   end
   
-  def is_matching_login_user
-    user = User.find(params[:id])
-    unless user.id == current_user.id
-      redirect_to root_path
-    end
-  end
+  # def is_matching_login_user
+  #   user = User.find(params[:id])
+  #   unless user.id == current_user.id
+  #     redirect_to root_path
+  #   end
+  # end
 end

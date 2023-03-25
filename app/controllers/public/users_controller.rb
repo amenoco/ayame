@@ -1,4 +1,4 @@
-class Public::UsersController < ApplicationController
+class Public::UsersController < PublicController
   def new
     @user = User.new
   end

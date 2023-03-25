@@ -1,4 +1,4 @@
-class Public::HomesController < ApplicationController
+class Public::HomesController < PublicController
   def top
     @category_posts =  Category.includes(:posts).map{|o| {category: o, posts: o.posts.published } }
     @category_id = 0

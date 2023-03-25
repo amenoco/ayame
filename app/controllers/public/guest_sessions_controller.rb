@@ -1,4 +1,4 @@
-class Public::GuestSessionsController < ApplicationController
+class Public::GuestSessionsController < PublicController
     def login_required
     skip_before_action :login_required
     end

@@ -1,4 +1,4 @@
-class Public::DetailsController < ApplicationController
+class Public::DetailsController < PublicController
   def new
   end
 
