@@ -1,17 +1,21 @@
 class Public::GuestSessionsController < PublicController
-    def login_required
-    skip_before_action :login_required
+  #def login_required
+   # skip_before_action :login_required
+  #end
+    
+  def create
+    user = User.find_or_initialize_by(email: User.new.send(:guest_email))
+    if user.new_record?
+      password = Digest::MD5.new
+      password.update("guest")
+      user.assign_attributes(name: "ゲスト", password: password.to_s)
+      user.save!
     end
-    def create
-        user = User.find_by(email: "guest@example.com")
-        if user.present?
-         sign_in user
-        redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
-        else
-            redirect_to root_path
-        end
-    end
-    def new
-    end
-   
+    sign_in user
+    flash[:notice] = 'ゲストユーザーとしてログインしました。'
+    redirect_to root_path
+  end
+    
+  def new
+  end
 end

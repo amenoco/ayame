@@ -21,8 +21,22 @@ class User < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   
+  has_many :notifications, dependent: :destroy
+  has_many :notification_comments, through: :notifications, source: :post_comment
+  
+  def unread_notifications
+    self.notifications.unread
+  end
+  def unread_notification_comments
+    Commeent.where(id: self.notifications.unread.pluck(:post_comment_id))
+  end
+  
   def active_for_authentication?
     super && (is_deleted == false)
+  end
+  
+  def is_guest?
+    self.email == guest_email
   end
   
   enum address: { 
@@ -38,4 +52,10 @@ class User < ApplicationRecord
      沖縄県:47
     
   }
+  
+  private
+  
+  def guest_email
+    "guest@example.com"
+  end
 end

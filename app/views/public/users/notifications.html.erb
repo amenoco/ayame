@@ -1,0 +1,6 @@
+<ul>
+  <% @notifications.each do |notification| %>
+    <li><%= notification.post_comment.user.name %>さんから<%= link_to "メッセージ", post_path(notification.post_comment.post) %>があります。</li>
+  <% end %>
+  <li><%= 'no-record' unless @notifications.any? %></li>
+</ul>

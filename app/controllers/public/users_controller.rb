@@ -74,6 +74,10 @@ class Public::UsersController < PublicController
     redirect_to root_path
   end
   
+  def notifications
+    @notifications =  current_user.unread_notifications.includes(:post_comment)
+  end
+  
   private
 
   def user_params

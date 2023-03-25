@@ -24,7 +24,7 @@ scope module: :public do
     get '/privacy_policy' => 'homes#privacy_policy', as: 'privacy_policy'
     get '/terms' => 'homes#terms', as: 'terms'
     get '/guideline' => 'homes#guideline', as: 'guideline'
-
+    
     post '/guest', to: 'guest_sessions#create'
     get '/users/my' => 'users#my', as: 'my_page'
     get '/users/infomation/edit' => 'users#edit', as: 'users_edit'
@@ -32,7 +32,11 @@ scope module: :public do
     patch '/users/withdraw' => 'users#withdraw', as: 'withdraw'
 
 
-    resources :users, :posts, :details, :address, :my
+    resources :users, :posts, :details, :address, :my do
+      collection do
+        get :notifications
+      end
+    end
     
     resources :posts, only: [:new, :create, :index, :show, :destroy] do
       resource :favorites, only: [:create, :destroy]

@@ -41,29 +41,32 @@
                 <% end %>
               
                 <% if @post.favorited_by?(current_user) %>
-                  <%= link_to post_favorites_path(@post), style: "color: #ff8ec6", class: "nav-link", method: :delete do %>
-                <h6>
-                    <i class="fas fa-heart"></i><%= @post.favorites.count %> いいね
-                </h6>
+                  <% body = capture do %>
+                    <h6>
+                      <i class="fas fa-heart"></i><%= @post.favorites.count %> いいね
+                    </h6>
                   <% end %>
+                  <%= link_to_if !current_user.is_guest?, body, post_favorites_path(@post), style: "color: #ff8ec6", class: "nav-link", method: :delete %>
                 <% else %>
-                  <%= link_to post_favorites_path(@post), class: "nav-link", method: :post do %>
-                <h6>
-                    <i class="far fa-heart"></i><%= @post.favorites.count %> いいね
-                </h6>
+                  <% body = capture do %>
+                    <h6>
+                        <i class="far fa-heart"></i><%= @post.favorites.count %> いいね
+                    </h6>                  
                   <% end %>
+                  <%= link_to_if !current_user.is_guest?, body, post_favorites_path(@post), class: "nav-link", method: :post %>
                 <% end %>
               
+              <% if !current_user.is_guest? %>
                 <%= form_with model: @post_comment, url:post_post_comments_path(@post.id), method: :post do |f| %>
                   <%= f.text_area :comment, rows: '2', placeholder: "コメントをここに記入" %>
                   <p><%= f.submit "送信する", class: "btn send-btn" %></p>
                 <% end %>
-            
+              <% end %>
     </div>
     
     <div class="col-md-6">
       
-      <% @post.post_comments.each do |post_comment| %>
+      <% @post_comments.each do |post_comment| %>
         <p><%= image_tag post_comment.user.get_profile_image(50,50), class: "rounded-circle" %></p>
           <p><%= simple_format(post_comment.comment) %></p>
             <p><%= post_comment.user.name %>

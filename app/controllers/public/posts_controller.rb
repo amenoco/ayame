@@ -24,7 +24,9 @@ class Public::PostsController < PublicController
     @post = Post.find(params[:id])
     @posts = @post.user
     @post_comment = PostComment.new
+    @post_comments = @post.post_comments
     @now = Time.now
+    current_user.notifications.where(post_comment_id: @post_comments.pluck(:id)).update_all(already_read: true)
   end
 
   def edit
