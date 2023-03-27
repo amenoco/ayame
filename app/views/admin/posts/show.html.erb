@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row no-gutters">
     <div class="col-md-6">
+      <%= flash[:notice] %>
       <h4><%= @post.user.name %></h4>
         <p><%= @post.title %></p>
          <p><%= simple_format(@post.text) %></p>

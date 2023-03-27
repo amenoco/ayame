@@ -1,6 +1,12 @@
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-9">
 <ul>
   <% @notifications.each do |notification| %>
-    <li><%= notification.post_comment.user.name %>さんから<%= link_to "メッセージ", post_path(notification.post_comment.post) %>があります。</li>
+    <li><%= notification.post_comment.user.name %>さんから<%= link_to "コメント", post_path(notification.post_comment.post) %>があります。</li>
   <% end %>
-  <li><%= 'no-record' unless @notifications.any? %></li>
+  <li><%= '現在お知らせはありません。' unless @notifications.any? %></li>
 </ul>
+    </div>
+  </div>
+</div>

@@ -4,7 +4,7 @@
       <h4><%= link_to @post.user.name, user_path(@post.user), style: "color: #9999ff", class: 'nav-link font-weight-bold d-inline' %></h4>
         <p><%= image_tag @posts.get_profile_image(100,100), class: "rounded-circle" %></p>
           <p><%= @post.title %></p>
-            <p><%= simple_format(@post.text) %></p>
+            <p><%= simple_format(@post.text) %></p> 
             
                 <% if @post.images.attached? %>
                   <% @post.images.each do |image| %>
