@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
+      <%= flash[:notice] %>
       <h4><%= link_to @post.user.name, user_path(@post.user), style: "color: #9999ff", class: 'nav-link font-weight-bold d-inline' %></h4>
         <p><%= image_tag @posts.get_profile_image(100,100), class: "rounded-circle" %></p>
           <p><%= @post.title %></p>

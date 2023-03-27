@@ -61,3 +61,4 @@ gem 'kaminari','~> 1.2.1'
 gem "enum_help"
 gem "net-smtp"
 gem 'rails-i18n'
+# gem 'devise-i18n'

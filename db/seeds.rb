@@ -12,7 +12,7 @@ Admin.create!(
 )
 
 Category.create!(
-  name: "ALL"
+  name: "つぶやき"
 )
 
 Category.create!(
