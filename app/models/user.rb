@@ -13,6 +13,7 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [hight, width]).processed
   end
   
+  validates :name,presence: true
   validates :email, presence: true
   validates :address, presence: true
  

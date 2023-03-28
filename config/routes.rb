@@ -54,13 +54,7 @@ end
     end
     resources :users, :categories, :posts, :details
     get '/users/:id/posts', to: 'user/posts#index', as: 'user_posts' 
-    # namespace :users do
-    #   resources :posts, only: :index
-    # end
-    # resources :categories, :posts, :details
-    # resources :users do
-    #   resources :posts, only: :index
-    # end
+    
   end
   
 

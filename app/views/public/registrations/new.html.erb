@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row offset-sm-1">
     <div class="col-sm-12 col-md-12 col-lg-5 px-5 px-sm-0 mx-auto">
-      <%= flash[:danger] %>
       <h2>新規登録</h2>
+      <p><%= flash[:danger] %></p>
         <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
-        <%= render "public/shared/error_messages", resource: resource %>
+        <p><%= render "public/shared/error_messages", resource: resource %></p>
           
           <div class="field">
             <%= f.label :お名前 %><br>

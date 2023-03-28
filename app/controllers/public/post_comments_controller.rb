@@ -3,7 +3,8 @@ class Public::PostCommentsController < PublicController
     @post = Post.find(params[:post_id])
     comment = current_user.post_comments.new(post_comment_params)
     comment.post_id = @post.id
-    comment.save
+    comment.save!
+     flash[:notice] = 'コメントが反映されました'
     redirect_to post_path(@post.id)
   end
 

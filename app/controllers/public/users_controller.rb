@@ -45,7 +45,7 @@ class Public::UsersController < PublicController
   end
 
   def update
-     @user = User.find(params[:id])
+    @user = User.find(params[:id])
     image = params[:image]
     hash = SecureRandom.hex(10)
     @user.image = "#{@user.name}_#{hash}.jpg" if image

@@ -78,16 +78,16 @@ Rails.application.configure do
 
   config.hosts.clear
   config.active_job.queue_adapter = :inline
-  
+
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     port:                 587,
     address:              'smtp.gmail.com',
     domain:               'gmail.com',
-    user_name:            'taka12me24@gmail.com',
-    password:             'tkmtkm14',
-    authentication:       'login',
-    enable_starttls_auto: true
+    user_name:            ENV['MAILER_ADDRESS'],
+    password:             ENV['MAILER_PASSWORD'],
+    # authentication:       'login',
+    # enable_starttls_auto: true
   }
 end
