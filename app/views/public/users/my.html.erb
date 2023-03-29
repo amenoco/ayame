@@ -45,6 +45,15 @@
       </div>
         
       <div class="col-md-6">
+        
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-4 d-md-flex">
+              <h5 class="font-weight-bold"><%=link_to"いいね一覧",favorites_user_path(@user), style: "color: #c489ff;" %></h5>
+            </div>
+          </div>
+        </div>
+        
         <div class="form-group">
           <div class="row">
             <div class="col-md-4 d-md-flex">
@@ -98,24 +107,19 @@
         </div> 
         <% end %>
         
-          <div class="form-group">
-            <div class="row">
-              <div class="col-md-4 d-md-flex">
-                <h5 class="font-weight-bold">いいね一覧</h5>
-              </div>
-            </div>
-          </div>
                     
-      <% @post.favorites.count.each do |favorites| %>
-        <div class="form-group">
-          <div class="row">
-            <div class="col-md-12 d-md-flex">
-              <div class="field col-md-3"><%= link_to @post.title, post_path(@post.id), style: "color: #7fbfff" %></div>
+                    <p></p>
+                    
+      <!--<%# @post.favorites.count.each do |favorites| %>-->
+      <!--  <div class="form-group">-->
+      <!--    <div class="row">-->
+      <!--      <div class="col-md-12 d-md-flex">-->
+      <!--        <div class="field col-md-3"><%#= link_to @post.title, post_path(@post.id), style: "color: #7fbfff" %></div>-->
 
-            </div>
-          </div>
-        </div> 
-        <% end %>
+      <!--      </div>-->
+      <!--    </div>-->
+      <!--  </div> -->
+      <!--  <%# end %>-->
       </div>
   </div>
 </div>

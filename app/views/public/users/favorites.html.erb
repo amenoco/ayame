@@ -1,0 +1,32 @@
+<div class="containe">
+  <div class="row offset-sm-2">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto offset-sm-1">
+      <h5 class="font-weight-bold">いいね一覧</h5>
+   
+    
+      <% @favorite_posts.each do |post|%>
+        <div class="form-group">
+          <div class="row">
+            
+              <div class="col-md-4"><%= link_to post.title, post_path(post.id), style: "color: #7fbfff" %></div>
+                <div class="col-md-2"><%= post.user.name %></div>
+                  <div class="col-md-3">
+                    <% if ((@now - post.created_at).floor / 60) < 60 %>
+                      <%= ((@now - post.created_at).floor / 60) %>分前
+                    <% elsif ((@now - post.created_at).floor / 3600) < 24 %>
+                      <%= ((@now - post.created_at).floor / 3600) %>時間前
+                    <% else %>
+                      <%= ((@now - post.created_at).floor / 86400) %>日前
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+              
+
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -58,6 +58,9 @@ class Public::PostsController < PublicController
 
   def destroy
     @post = Post.find(params[:id])
+    @post_comment = PostComment.find(params[:id])
+    Notification.where(post_comment_id: post_comment.id).destroy_all
+    @post_comment.destroy
     @post.destroy
     redirect_to root_path
   end

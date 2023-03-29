@@ -1,4 +1,5 @@
 class Public::UsersController < PublicController
+  before_action :set_user, only: [:favorites]
   def new
     @user = User.new
   end
@@ -21,9 +22,16 @@ class Public::UsersController < PublicController
     @category_id =  0
   end
 
+  def favorites
+    @user = User.find(params[:id])
+    favorites= Favorite.where(user_id: @user.id).pluck(:post_id)
+    @favorite_posts = Post.find(favorites)
+    @now = Time.now 
+  end
+
   def edit
     @user = current_user
-  end
+  end 
 
   def create
     @user = User.new(user_params)
@@ -89,6 +97,10 @@ class Public::UsersController < PublicController
     unless user.id == current_user.id
       redirect_to root_path
     end
+  end
+  
+  def set_user
+    @user = User.find(params[:id])
   end
   
 end

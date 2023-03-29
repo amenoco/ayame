@@ -1,11 +1,20 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h4><%= @user.name %>さんの投稿</h4>
+      <h4><%= @user.name %>さんのページ</h4>
         <%= image_tag @user.get_profile_image(100,100), class: "rounded-circle" %>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-12 d-md-flex">
+              <div class="field col-md-3"><p>都道府県</p></div>
+                <div class="col-md-5"><%= @user.address %></div>
+            </div>
+          </div>
+        </div>
           <p>投稿件数：<%= @posts.count %>件</p>
     </div>
     <div class="col-md-6">
+      <h5>投稿一覧</h5>
       <% @posts.each do |post| %>
       <div class="form-group">
           <div class="row">

@@ -37,7 +37,11 @@ scope module: :public do
         get :notifications
       end
     end
-    
+    resources :users, only: [:show,:index,:edit,:update] do
+      member do
+        get :favorites
+      end
+    end
     resources :posts, only: [:new, :create, :index, :show, :destroy] do
       resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]

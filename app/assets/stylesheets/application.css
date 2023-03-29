@@ -193,7 +193,7 @@ input.new-btn:hover {
 /*赤*/
 a.delete-btn {
   background-color: #ff9e9e;
-  margin: 12px 0x;
+  margin: 12px 0px;
 }
 
 a.delete-btn:hover {

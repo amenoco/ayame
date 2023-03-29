@@ -4,12 +4,15 @@ class Admin::PostsController < AdminController
     @posts = Post.all
     @post = @posts
     @now = Time.now
+    
   end
 
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
     @now = Time.now
+    @user_id = @post.user_id
+    
   end
 
   def edit
@@ -27,8 +30,9 @@ class Admin::PostsController < AdminController
 
   def destroy
     @post = Post.find(params[:id])
+    user_id = @post.user_id
     @post.destroy
-    redirect_to admin_posts_pats
+    redirect_to admin_user_posts_path(user_id)
   end
   
   private

@@ -37,30 +37,42 @@
               <% if user_signed_in? %>
                 <% if !current_user.is_guest? %>
                   <li class="nav-item">
-                    <%= link_to '投稿フォーム', new_post_path, style: "color: #674196", class: 'nav-link font-weight-bold' %>
+                    <%= link_to '新規投稿', new_post_path, style: "color: #674196", class: 'nav-link font-weight-bold' %>
                   </li>
                   <li class="nav-item">
                     <%= link_to 'マイページ',  my_page_path, style: "color: #674196", class: 'nav-link font-weight-bold' %>
                   </li>
                 <% end %>
+                  <li class="nav-item">
+                    <%= link_to "ログアウト", destroy_user_session_path, style: "color: #674196", method: :delete, class: 'nav-link font-weight-bold' %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to notifications_users_path, style: "color: #ffb366", class: 'nav-link font-weight-bold' do %>
+                      <i class="fas fa-bell"></i>
+                    <% end %>
+                  </li>
+                
+              <% elsif admin_signed_in? %>
+                
                 <li class="nav-item">
-                  <%= link_to "ログアウト", destroy_user_session_path, style: "color: #674196", method: :delete, class: 'nav-link font-weight-bold' %>
+                  <%= link_to '会員一覧', admin_root_path, style: "color: #674196", class: 'nav-link font-weight-bold' %>
                 </li>
+                
                 <li class="nav-item">
-                  <%= link_to notifications_users_path, style: "color: #ffb366", class: 'nav-link font-weight-bold' do %>
-                    <i class="fas fa-bell"></i>
-                  <% end %>
+                  <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, style: "color: #674196", class: 'nav-link font-weight-bold' %>
                 </li>
+              
+                
               <% else %>
-              <li class="nav-item">
-                <%= link_to "新規登録", new_user_registration_path, style: "color: #674196", class: 'nav-link font-weight-bold' %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "ログイン", new_user_session_path, style: "color: #674196", class: 'nav-link font-weight-bold' %>
-              </li>
-              <li class="nav-item">
-                <%= link_to 'ゲストユーザー', guest_path, style: "color: #674196", method: :post, class: 'nav-link font-weight-bold' %>
-              </li>
+                <li class="nav-item">
+                  <%= link_to "新規登録", new_user_registration_path, style: "color: #674196", class: 'nav-link font-weight-bold' %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ログイン", new_user_session_path, style: "color: #674196", class: 'nav-link font-weight-bold' %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'ゲストユーザー', guest_path, style: "color: #674196", method: :post, class: 'nav-link font-weight-bold' %>
+                </li>
 
               <% end %>
               </ul>
