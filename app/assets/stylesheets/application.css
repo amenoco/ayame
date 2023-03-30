@@ -24,13 +24,13 @@
  
  .jumbotron {
   background:url(ayame.jpg) center no-repeat; 
-  background-size: auto; 
+  background-size: cover; 
   height: 400px;
 }
 
 .headwrap{
 	background:url(f.jpg) no-repeat center top;
-	background-size: auto; 
+	background-size: cover; 
  height: 200px;
 } 
 

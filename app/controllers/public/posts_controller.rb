@@ -1,6 +1,6 @@
 class Public::PostsController < PublicController
   before_action :is_matching_login_user, only: [:edit]
-  
+  before_action :authenticate_user!
   def new
     @post = Post.new
   end
@@ -58,7 +58,7 @@ class Public::PostsController < PublicController
 
   def destroy
     @post = Post.find(params[:id])
-    Notification.where(post_comment_id: post_comment.id).destroy_all
+    # Notification.where(post_comment_id: post_comment.id).destroy_all
     @post.destroy
     redirect_to root_path
   end
