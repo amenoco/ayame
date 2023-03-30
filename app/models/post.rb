@@ -6,6 +6,7 @@ class Post < ApplicationRecord
   validates :text, presence: true,length:{maximum:200}
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :notifications, dependent: :destroy
     def self.search(search) #self.はUser.を意味する
       if search
          where(['text LIKE ?', "%#{search}%"]) #検索とuseanameの部分一致を表示。

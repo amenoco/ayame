@@ -15,12 +15,15 @@ class PublicController < ApplicationController
   
   # before_action :set_user
 
-  # def create
-  #   if @user.save #ユーザーのインスタンスが新しく生成されて保存されたら
-  #     NotificationMailer.send_when_signup(@user).deliver #確認メールを送信
-  #     redirect_to @user
-  #   else
-  #     render 'new'
-  #   end
-  # end
+  def reject_user
+    @user = User.find_by(name: params[:user][:name])
+    if @user 
+      if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == false)
+        flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
+        redirect_to new_user_registration
+      else
+        flash[:notice] = "項目を入力してください"
+      end
+    end
+  end
 end

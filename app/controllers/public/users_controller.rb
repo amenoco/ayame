@@ -58,7 +58,7 @@ class Public::UsersController < PublicController
     hash = SecureRandom.hex(10)
     @user.image = "#{@user.name}_#{hash}.jpg" if image
     if @user.update!(user_params)
-        redirect_to users_path
+        redirect_to my_page_path
     else
       @user.image = image
       render :edit
