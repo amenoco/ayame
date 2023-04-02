@@ -4,8 +4,8 @@ class CreatePosts < ActiveRecord::Migration[6.1]
 
       t.string :title,          null:false, default: ""
       t.string :text,           null:false, default: ""
-      t.integer :user_id,       null:false, default: ""
-      t.integer :category_id,   null:false, default: ""
+      t.integer :user_id,       null:false 
+      t.integer :category_id,   null:false
       t.boolean :is_published_flag, default: false
       
       t.timestamps
