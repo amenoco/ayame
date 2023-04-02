@@ -1,6 +1,6 @@
 class Public::HomesController < PublicController
   def top
-    @category_posts =  Category.includes(:posts).map{|o| {category: o, posts: o.posts.published } }
+    @category_posts =  Category.includes(:posts).map{|o| {category: o, posts: o.posts.published.page(params[:page]).per(4) } }
     @category_id = 0
     @search = params[:search]
     @now = Time.now

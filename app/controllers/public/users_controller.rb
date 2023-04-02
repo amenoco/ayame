@@ -5,7 +5,7 @@ class Public::UsersController < PublicController
   end
 
   def index
-    @user = User.all
+    @user = User.all.page(params[:page]).per(5)
   end
 
   def show
@@ -16,7 +16,7 @@ class Public::UsersController < PublicController
 
   def my
     @user = current_user
-    @posts = @user.posts
+    @posts = @user.posts.page(params[:page]).per(5)
     @now = Time.now 
     @category_posts =  Category.includes(:posts).map{|o| {category: o, posts: o.posts } }
     @category_id =  0

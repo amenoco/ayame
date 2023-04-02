@@ -106,20 +106,9 @@
           </div>
         </div> 
         <% end %>
-        
+        <%= paginate @posts %>
                     
-                    <p></p>
-                    
-      <!--<%# @post.favorites.count.each do |favorites| %>-->
-      <!--  <div class="form-group">-->
-      <!--    <div class="row">-->
-      <!--      <div class="col-md-12 d-md-flex">-->
-      <!--        <div class="field col-md-3"><%#= link_to @post.title, post_path(@post.id), style: "color: #7fbfff" %></div>-->
-
-      <!--      </div>-->
-      <!--    </div>-->
-      <!--  </div> -->
-      <!--  <%# end %>-->
+         
       </div>
   </div>
 </div>
