@@ -1,0 +1,263 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ *{
+ font-family: 'Zen Maru Gothic', sans-serif;
+ }
+ 
+ #header {
+  background-color: #D9E5FF; /* ヘッダの背景色 */
+ }
+ 
+ 
+ .jumbotron {
+  background:url(ayame.jpg) center no-repeat; 
+  background-size: cover; 
+  height: 400px;
+}
+
+.headwrap{
+	background:url(f.jpg) no-repeat center top;
+	background-size: cover; 
+ height: 200px;
+} 
+
+ 
+ footer {
+  color: #2E8B57;
+  margin-top: auto;
+}
+
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tab_label {
+  color: #75A9FF;
+  font-weight: bold;
+  border: solid 2px #75A9FF;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  flex: 1;
+  padding: 5px 0;
+  margin: 0 5px; 
+}
+
+.tab_label:hover {
+  opacity: 0.75;
+}
+
+
+.tab_content {
+  flex: 100%;
+  overflow: hidden;
+}
+
+input[name="tab_switch"] {
+  display: none;
+}
+
+.tabs input:checked + .tab_label {
+  color: #fff;
+  background-color: #75A9FF;
+}
+.tabs input:checked + .tab_label::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: #75A9FF transparent transparent transparent;
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  transition: all 0.3s ease 0s;
+}
+
+h1{
+  font-size:100%;
+  color: #9966FF;
+}
+
+/*タイトル*/
+h2{
+  font-size:100%;
+  color: #C299FF;
+  font-weight: 900;
+}
+
+/*ページ名*/
+h4{
+  font-size:100%;
+  color: #9999ff;
+}
+
+/*投稿一覧*/
+h5{
+  font-size:100%;
+  color: #c489ff;
+}
+
+/*いいね*/
+h6{
+  font-size:100%;
+  color: #ff8ec6;
+  font-weight: bold;
+}
+/*投稿等の色*/
+div{
+  font-size:100%;
+  color: #7fbfff;
+}
+
+/*固定文字*/
+p{
+  font-size:100%;
+  color: #c489ff;
+}
+
+label{
+  font-size:100%;
+  color: #c489ff;
+}
+
+span.published {
+  color: #73e6ac;
+}
+
+span.unpublished {
+  color: #ff7f7f;
+}
+
+a.btn {
+  color: #fff;
+  border-radius: 100vh;
+}
+
+/*青*/
+a.send-btn {
+  color: #fff;
+  background-color: #6eadff;
+   margin: 12px 12px;
+}
+
+a.send-btn:hover {
+  color: #fff;
+  background-color: #5383c3;
+   margin: 12px 12px;
+}
+
+input.send-btn {
+  color: #fff;
+  background-color: #6eadff;
+  border-radius: 100vh;
+  margin: 6px 0px;
+}
+
+input.send-btn:hover {
+  color: #fff;
+  background-color: #5383c3;
+  border-radius: 100vh;
+  margin: 6px 0px;
+}
+
+input.new-btn {
+  color: #fff;
+  background-color: #6eadff;
+  border-radius: 100vh;
+}
+
+input.new-btn:hover {
+  color: #fff;
+  background-color: #5383c3;
+  border-radius: 100vh;
+}
+
+/*赤*/
+a.delete-btn {
+  background-color: #ff9e9e;
+  margin: 12px 0px;
+}
+
+a.delete-btn:hover {
+  color: #fff;
+  background: #ff7f7f;
+}
+
+/*緑*/
+a.edit-btn {
+  background-color: #20b2aa;
+  margin: 12px 12px;
+}
+
+a.edit-btn:hover {
+  color: #fff;
+  background-color: #008b8b;
+}
+
+input.edit-btn {
+  color: #fff;
+  background-color: #20b2aa;
+  margin: 12px 0px;
+  border-radius: 100vh;
+}
+
+input.edit-btn:hover {
+  color: #fff;
+  background-color: #008b8b;
+  border-radius: 100vh;
+}
+
+.text-box {
+  border: 2px #f2e5ff;
+  color: #9580ff;
+  background-color: #f9f4ff;
+  padding: 0.2em;
+  line-height: 2;
+  border-radius: 100vh;
+}
+
+.textlines{
+  border: 2px #f2e5ff;  /* 枠線 */
+  color: #9580ff;
+  border-radius: 1em;   /* 角丸 */
+  padding: 0.2em;          /* 内側の余白量 */
+  background-color: #f9f4ff;  /* 背景色 */
+  width: 16.5em;             /* 横幅 */
+  height: 120px;           /* 高さ */
+  font-size: 1em;          /* 文字サイズ */
+  line-height: 1.2;        /* 行の高さ */
+  /*background-color: #20b2aa;*/
+  /*margin: 12px 12px;*/
+}
+
+.navbar-toggler{
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.jumbotron {
+  background-color: white !important;
+}
+
